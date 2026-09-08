@@ -71,6 +71,8 @@
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .kpi-card h2,
@@ -87,10 +89,15 @@
 .kpi-header,
 .section-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
   gap: 8px;
   margin-bottom: 12px;
+}
+
+.card-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 .kpi-primary {
@@ -106,6 +113,7 @@
 .kpi-secondary {
   font-size: 0.85rem;
   color: #666;
+  flex: 1;
 }
 
 .text-danger {
@@ -121,14 +129,26 @@
   color: #c0392b;
 }
 
+.card-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+}
+
 .chip {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   padding: 4px 8px;
   border-radius: 4px;
   white-space: nowrap;
+}
+
+.chip-warn-icon {
+  width: 12px;
+  height: 12px;
 }
 
 .chip-critical {
@@ -155,10 +175,15 @@
   border: 1px solid #e5e7eb;
 }
 
+.delivery-card {
+  min-height: 100%;
+}
+
 .delivery-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
+  flex: 1;
 }
 
 .delivery-table th {
@@ -189,9 +214,9 @@
 .alert {
   font-size: 0.85rem;
   padding: 10px 12px;
-  border-radius: 6px;
-  border-left: 4px solid;
+  border-radius: 4px;
   line-height: 1.4;
+  color: #fff;
 }
 
 .alert-label {
@@ -199,21 +224,15 @@
 }
 
 .alert-critical {
-  background: #fef2f2;
-  border-left-color: #dc2626;
-  color: #7f1d1d;
+  background: #7f1d1d;
 }
 
 .alert-high {
-  background: #fff7ed;
-  border-left-color: #ea580c;
-  color: #7c2d12;
+  background: #dc2626;
 }
 
 .alert-warning {
-  background: #fefce8;
-  border-left-color: #ca8a04;
-  color: #713f12;
+  background: #ea580c;
 }
 
 .chart-card h2 {

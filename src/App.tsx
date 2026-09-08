@@ -11,39 +11,131 @@ import {
 import { dashboardData as d } from './data/mockData'
 import './App.css'
 
+type ChipVariant = 'critical' | 'high' | 'warning' | 'neutral'
+type CardIconVariant = 'bar' | 'cube' | 'zigzag' | 'clock' | 'truck' | 'bell'
+
 function Chip({
   children,
   variant,
+  showWarningIcon,
 }: {
   children: React.ReactNode
-  variant: 'critical' | 'high' | 'warning' | 'neutral'
+  variant: ChipVariant
+  showWarningIcon?: boolean
 }) {
-  return <span className={`chip chip-${variant}`}>{children}</span>
+  return (
+    <span className={`chip chip-${variant}`}>
+      {showWarningIcon && (
+        <svg className="chip-warn-icon" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M8 1.5 1.5 13.5h13L8 1.5zm0 3.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 5zm0 7a.875.875 0 1 1 0-1.75A.875.875 0 0 1 8 12z"
+          />
+        </svg>
+      )}
+      {children}
+    </span>
+  )
+}
+
+function CardIcon({ variant }: { variant: CardIconVariant }) {
+  const icons: Record<CardIconVariant, React.ReactNode> = {
+    bar: (
+      <>
+        <rect x="3" y="12" width="3" height="6" rx="0.5" fill="#22c55e" />
+        <rect x="8" y="8" width="3" height="10" rx="0.5" fill="#22c55e" />
+        <rect x="13" y="4" width="3" height="14" rx="0.5" fill="#22c55e" />
+      </>
+    ),
+    cube: (
+      <>
+        <path
+          d="M12 6.5 8 4 4 6.5v7L8 20l4-2.5v-7Z"
+          fill="none"
+          stroke="#ef4444"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path d="M8 4v15.5M4 6.5 8 9l4-2.5" stroke="#ef4444" strokeWidth="1.5" strokeLinejoin="round" />
+      </>
+    ),
+    zigzag: (
+      <path
+        d="M4 16 8 8l4 6 4-10"
+        fill="none"
+        stroke="#ec4899"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    ),
+    clock: (
+      <>
+        <circle cx="12" cy="12" r="8" fill="none" stroke="#f97316" strokeWidth="1.5" />
+        <path d="M12 8v4.5l3 2" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
+      </>
+    ),
+    truck: (
+      <>
+        <rect x="2" y="9" width="11" height="7" rx="1" fill="none" stroke="#ef4444" strokeWidth="1.5" />
+        <path d="M13 11h3l2 3v2h-5v-5Z" fill="none" stroke="#ef4444" strokeWidth="1.5" strokeLinejoin="round" />
+        <circle cx="6" cy="17" r="1.5" fill="#ef4444" />
+        <circle cx="16" cy="17" r="1.5" fill="#ef4444" />
+      </>
+    ),
+    bell: (
+      <>
+        <path
+          d="M12 17H6c-1.1 0-2-.9-2-2v-.5c0-2.5 1.5-4.7 3.8-5.7V7.5a4.2 4.2 0 0 1 8.4 0v1.3c2.3 1 3.8 3.2 3.8 5.7V15c0 1.1-.9 2-2 2Z"
+          fill="none"
+          stroke="#666"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path d="M10 4.2a2 2 0 0 0 4 0" fill="none" stroke="#666" strokeWidth="1.5" />
+      </>
+    ),
+  }
+
+  return (
+    <svg className={`card-icon card-icon-${variant}`} viewBox="0 0 24 24" aria-hidden="true">
+      {icons[variant]}
+    </svg>
+  )
 }
 
 function KpiCard({
+  icon,
   title,
   primary,
   primaryClass,
   secondary,
   chip,
   chipVariant,
+  showWarningIcon,
 }: {
+  icon: CardIconVariant
   title: string
   primary: React.ReactNode
   primaryClass?: string
   secondary: React.ReactNode
   chip: string
-  chipVariant: 'critical' | 'high' | 'warning' | 'neutral'
+  chipVariant: ChipVariant
+  showWarningIcon?: boolean
 }) {
   return (
     <article className="card kpi-card">
       <header className="kpi-header">
+        <CardIcon variant={icon} />
         <h2>{title}</h2>
-        <Chip variant={chipVariant}>{chip}</Chip>
       </header>
       <div className={`kpi-primary ${primaryClass ?? ''}`}>{primary}</div>
       <div className="kpi-secondary">{secondary}</div>
+      <footer className="card-footer">
+        <Chip variant={chipVariant} showWarningIcon={showWarningIcon}>
+          {chip}
+        </Chip>
+      </footer>
     </article>
   )
 }
@@ -68,6 +160,12 @@ function CompassIcon() {
   )
 }
 
+function monthTickFormatter(value: string, index: number, ticks: readonly { value: string }[]) {
+  if (index === 0) return value
+  if (value === ticks[index - 1]?.value) return ''
+  return value
+}
+
 export default function App() {
   return (
     <div className="dashboard">
@@ -79,6 +177,7 @@ export default function App() {
       <main className="dashboard-body">
         <section className="row kpi-row">
           <KpiCard
+            icon="bar"
             title="System Status"
             primary={
               <>
@@ -90,6 +189,7 @@ export default function App() {
             chipVariant="critical"
           />
           <KpiCard
+            icon="cube"
             title="Deliverable Tightness"
             primary={
               <>
@@ -107,6 +207,7 @@ export default function App() {
             chipVariant="critical"
           />
           <KpiCard
+            icon="zigzag"
             title="Paper/Physical Coverage"
             primary={
               <>
@@ -123,6 +224,7 @@ export default function App() {
             chipVariant="high"
           />
           <KpiCard
+            icon="clock"
             title="Days of Cover"
             primary={
               <>
@@ -136,14 +238,15 @@ export default function App() {
             }
             chip="LOW"
             chipVariant="warning"
+            showWarningIcon
           />
         </section>
 
         <section className="row detail-row">
           <article className="card delivery-card">
             <header className="section-header">
+              <CardIcon variant="truck" />
               <h2>Delivery Activity</h2>
-              <Chip variant="high">EXTREME PRESSURE</Chip>
             </header>
             <table className="delivery-table">
               <thead>
@@ -163,10 +266,14 @@ export default function App() {
                 </tr>
               </tbody>
             </table>
+            <footer className="card-footer">
+              <Chip variant="high">EXTREME PRESSURE</Chip>
+            </footer>
           </article>
 
           <article className="card alerts-card">
             <header className="section-header">
+              <CardIcon variant="bell" />
               <h2>Active Alerts</h2>
             </header>
             <ul className="alerts-list">
@@ -185,7 +292,14 @@ export default function App() {
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={d.registeredHistory} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="#888" />
+                <XAxis
+                  dataKey="month"
+                  tick={{ fontSize: 12 }}
+                  stroke="#888"
+                  tickFormatter={(value, index) =>
+                    monthTickFormatter(value, index, d.registeredHistory.map((p) => ({ value: p.month })))
+                  }
+                />
                 <YAxis domain={[30, 90]} tick={{ fontSize: 12 }} stroke="#888" unit=" Moz" />
                 <Tooltip formatter={(v) => [`${v ?? ''} Moz`, 'Registered']} />
                 <ReferenceLine
@@ -201,11 +315,11 @@ export default function App() {
                   label={{ value: 'Critical', position: 'insideBottomRight', fill: '#c0392b', fontSize: 11 }}
                 />
                 <Line
-                  type="monotone"
+                  type="linear"
                   dataKey="value"
                   stroke="#2563eb"
                   strokeWidth={2.5}
-                  dot={{ r: 3 }}
+                  dot={{ r: 3, fill: '#2563eb' }}
                   activeDot={{ r: 5 }}
                 />
               </LineChart>
@@ -217,7 +331,14 @@ export default function App() {
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={d.coverageHistory} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                <XAxis dataKey="month" tick={{ fontSize: 12 }} stroke="#888" />
+                <XAxis
+                  dataKey="month"
+                  tick={{ fontSize: 12 }}
+                  stroke="#888"
+                  tickFormatter={(value, index) =>
+                    monthTickFormatter(value, index, d.coverageHistory.map((p) => ({ value: p.month })))
+                  }
+                />
                 <YAxis domain={[4, 15]} tick={{ fontSize: 12 }} stroke="#888" unit="%" />
                 <Tooltip formatter={(v) => [`${v ?? ''}%`, 'Coverage']} />
                 <ReferenceLine
@@ -233,11 +354,11 @@ export default function App() {
                   label={{ value: 'Squeeze', position: 'insideBottomRight', fill: '#c0392b', fontSize: 11 }}
                 />
                 <Line
-                  type="monotone"
+                  type="linear"
                   dataKey="value"
-                  stroke="#2563eb"
+                  stroke="#db2777"
                   strokeWidth={2.5}
-                  dot={{ r: 3 }}
+                  dot={{ r: 3, fill: '#db2777' }}
                   activeDot={{ r: 5 }}
                 />
               </LineChart>
