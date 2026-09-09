@@ -21,6 +21,7 @@ export default function App() {
             { href: 'natgas/', label: 'NatGas' },
             { href: 'gold/', label: 'Gold' },
             { href: 'copper/', label: 'Copper' },
+            { href: 'wti/', label: 'WTI' },
           ]}
         />
       </header>

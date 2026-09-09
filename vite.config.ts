@@ -14,6 +14,7 @@ export default defineConfig({
         natgas: resolve(__dirname, 'natgas/index.html'),
         gold: resolve(__dirname, 'gold/index.html'),
         copper: resolve(__dirname, 'copper/index.html'),
+        wti: resolve(__dirname, 'wti/index.html'),
       },
     },
   },

@@ -1,27 +1,27 @@
 import {
   CardIcon,
   Chip,
-  CompassIcon,
   DashboardNav,
+  FlameIcon,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
 import { dashboardData as d } from './data'
 import '../App.css'
 
-export default function GoldApp() {
+export default function WtiApp() {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <CompassIcon />
-        <h1>Gold Warehouse Early-Warning Dashboard</h1>
+        <FlameIcon />
+        <h1>WTI Cushing Early-Warning Dashboard</h1>
         <DashboardNav
           links={[
             { href: '../', label: 'Silver' },
             { href: '../natgas/', label: 'NatGas' },
-            { href: './', label: 'Gold', active: true },
+            { href: '../gold/', label: 'Gold' },
             { href: '../copper/', label: 'Copper' },
-            { href: '../wti/', label: 'WTI' },
+            { href: './', label: 'WTI', active: true },
           ]}
         />
       </header>
@@ -42,21 +42,21 @@ export default function GoldApp() {
           />
           <KpiCard
             icon="cube"
-            title="Registered Tightness"
+            title="Cushing Stocks"
             primary={
               <>
-                Registered <strong>{d.registeredMoz} Moz</strong>{' '}
-                <span className="delta-positive">(+{d.registeredDelta30dPct}% 30d)</span>
+                Cushing <strong>{d.cushingMbbl} Mbbl</strong>{' '}
+                <span className="delta-positive">(+{d.weeklyChangeMbbl} Mbbl)</span>
               </>
             }
             secondary={
               <>
-                Eligible <strong>{d.eligibleMoz} Moz</strong> · Total <strong>{d.totalMoz} Moz</strong> · Req/Total{' '}
-                <strong>{d.reqTotalPct}%</strong>
+                vs 5-yr avg <strong>{d.vsFiveYearPct}%</strong> ({d.fiveYearAvgMbbl} Mbbl); ~{d.capacityPct}% of{' '}
+                {d.workingCapacityMbbl} Mbbl capacity
               </>
             }
-            chip={d.chips.tightness.text}
-            chipVariant={d.chips.tightness.variant}
+            chip={d.chips.storage.text}
+            chipVariant={d.chips.storage.variant}
           />
           <KpiCard
             icon="zigzag"
@@ -68,8 +68,8 @@ export default function GoldApp() {
             }
             secondary={
               <>
-                Vault Report <strong>{d.paperPhysicalRatio}:1</strong> → ~{d.impliedPaperMoz} Moz paper (CFTC OI{' '}
-                {d.openInterestContracts.toLocaleString()} ≈ {d.openInterestMoz} Moz cross-check)
+                NYMEX CL OI <strong>{d.openInterestContracts.toLocaleString()}</strong> contracts → ~
+                {d.impliedPaperMbbl.toLocaleString()} Mbbl paper at {d.paperPhysicalRatio}:1
               </>
             }
             chip={d.chips.coverage.text}
@@ -93,33 +93,30 @@ export default function GoldApp() {
           <article className="card delivery-card">
             <header className="section-header">
               <CardIcon variant="truck" />
-              <h2>Delivery Activity</h2>
+              <h2>Weekly Flow Activity</h2>
             </header>
             <table className="delivery-table">
               <thead>
                 <tr>
-                  <th>30d Stops</th>
-                  <th>Sep 4 Stop</th>
-                  <th>Delivery Month</th>
-                  <th>Vault Flow</th>
+                  <th>Cushing WoW</th>
+                  <th>US Commercial</th>
+                  <th>Report Week</th>
+                  <th>vs 5-Yr Avg</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
+                  <td>+{d.flow.cushingWowMbbl} Mbbl</td>
                   <td>
-                    {d.delivery.stops30dContracts.toLocaleString()} ({d.delivery.stops30dKoz} Koz, ~$
-                    {d.delivery.stops30dValueB}B)
+                    {d.flow.usCommercialMbbl} Mbbl ({d.flow.usCommercialWowMbbl} WoW)
                   </td>
-                  <td>
-                    {d.delivery.sep4Contracts} ({d.delivery.sep4Koz} Koz)
-                  </td>
-                  <td>{d.delivery.deliveryMonth}</td>
-                  <td>{d.delivery.sep4VaultFlow}</td>
+                  <td>{d.flow.reportWeek}</td>
+                  <td>{d.flow.vsFiveYearPct}%</td>
                 </tr>
               </tbody>
             </table>
             <footer className="card-footer">
-              <Chip variant={d.chips.delivery.variant}>{d.chips.delivery.text}</Chip>
+              <Chip variant={d.chips.flow.variant}>{d.chips.flow.text}</Chip>
             </footer>
           </article>
 
@@ -140,16 +137,16 @@ export default function GoldApp() {
 
         <section className="row chart-row">
           <LineChartCard
-            title="Historical Registered Gold"
-            data={d.registeredHistory}
-            yDomain={d.registeredYDomain}
-            yUnit=" Moz"
+            title="Cushing Commercial Crude (6 Weeks)"
+            data={d.storageHistory}
+            yDomain={d.storageYDomain}
+            yUnit=" Mbbl"
             referenceLines={[
-              { y: d.registeredAvg, label: 'Avg' },
-              { y: d.registeredCritical, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
+              { y: d.storageAvg, label: '5-yr avg' },
+              { y: d.storageLowBand, label: 'Tank bottoms', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
             ]}
             stroke="#2563eb"
-            tooltipLabel="Registered"
+            tooltipLabel="Cushing"
           />
           <LineChartCard
             title="Paper/Physical Coverage"
@@ -166,15 +163,16 @@ export default function GoldApp() {
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX warehouse
-          reports). Coverage chart shows the current 3:1 / 33% print only — no interpolated history. Not investment
-          advice.{' '}
+          Public snapshot, not a live EIA feed. Cushing figures as of week ending 2026-08-28 from EIA WPSR. OI from
+          CFTC WTI-Physical (067651, 2026-09-01) — not WTI Financial (06765A). Days cover uses US commercial /
+          refinery inputs (national). SPR is footnote only. Coverage chart shows the current 1.2% print only — no
+          interpolated history. Not investment advice.{' '}
           <a href={d.sourceUrl} target="_blank" rel="noreferrer">
-            Gold
+            EIA Cushing
           </a>
           {' · '}
-          <a href={d.sourceComex} target="_blank" rel="noreferrer">
-            COMEX
+          <a href={d.sourceVault} target="_blank" rel="noreferrer">
+            Vault Report
           </a>
         </footer>
       </main>

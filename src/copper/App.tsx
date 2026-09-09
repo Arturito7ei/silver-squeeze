@@ -21,6 +21,7 @@ export default function CopperApp() {
             { href: '../natgas/', label: 'NatGas' },
             { href: '../gold/', label: 'Gold' },
             { href: './', label: 'Copper', active: true },
+            { href: '../wti/', label: 'WTI' },
           ]}
         />
       </header>
