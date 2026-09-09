@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         natgas: resolve(__dirname, 'natgas/index.html'),
+        gold: resolve(__dirname, 'gold/index.html'),
       },
     },
   },
