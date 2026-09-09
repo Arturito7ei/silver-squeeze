@@ -2,12 +2,17 @@ import {
   CardIcon,
   Chip,
   CompassIcon,
-  DashboardNav,
+  DashboardNavGroup,
   KpiCard,
   LineChartCard,
 } from './components/DashboardUi'
 import { dashboardData as d } from './data/mockData'
+import { GoldSilverRatioCard } from './metals/GoldSilverRatioCard'
+import { goldSilverSources, goldSilverSpotFootnote } from './metals/goldSilverRatio'
+import { dashboardNav } from './metals/navLinks'
 import './App.css'
+
+const nav = dashboardNav('silver')
 
 export default function App() {
   return (
@@ -15,15 +20,7 @@ export default function App() {
       <header className="dashboard-header">
         <CompassIcon />
         <h1>Silver Squeeze Early-Warning Dashboard</h1>
-        <DashboardNav
-          links={[
-            { href: './', label: 'Silver', active: true },
-            { href: 'natgas/', label: 'NatGas' },
-            { href: 'gold/', label: 'Gold' },
-            { href: 'copper/', label: 'Copper' },
-            { href: 'wti/', label: 'Oil' },
-          ]}
-        />
+        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Metals dashboards" />
       </header>
 
       <main className="dashboard-body">
@@ -159,12 +156,26 @@ export default function App() {
           />
         </section>
 
+        <section className="row chart-row-full">
+          <GoldSilverRatioCard />
+        </section>
+
         <footer className="disclaimer">
           Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report
           (CME COMEX warehouse reports). Coverage history is the current 5:1 paper/physical print
-          only — no public daily coverage series was cited. Not investment advice.{' '}
+          only — no public daily coverage series was cited. Gold/silver ratio from IMF monthly averages
+          (PGOLD ÷ PSILVER, 2024-09→2026-08); Vault spot {goldSilverSpotFootnote} is a footnote only — not
+          mixed onto the IMF line. Not investment advice.{' '}
           <a href={d.sourceUrl} target="_blank" rel="noreferrer">
             Source
+          </a>
+          {' · '}
+          <a href={goldSilverSources.imf} target="_blank" rel="noreferrer">
+            IMF commodity prices
+          </a>
+          {' · '}
+          <a href={goldSilverSources.vaultSpot} target="_blank" rel="noreferrer">
+            Vault gold/silver
           </a>
         </footer>
       </main>

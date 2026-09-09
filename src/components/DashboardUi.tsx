@@ -198,11 +198,21 @@ export function DashboardNav({ links }: { links: { href: string; label: string; 
   )
 }
 
-export function OilSubnav({ links }: { links: { href: string; label: string; active?: boolean }[] }) {
+export function SectionSubnav({
+  links,
+  label,
+}: {
+  links: { href: string; label: string; active?: boolean }[]
+  label: string
+}) {
   return (
-    <nav className="oil-subnav" aria-label="Oil dashboards">
+    <nav className="section-subnav" aria-label={label}>
       {links.map((link) => (
-        <a key={link.href + link.label} href={link.href} className={link.active ? 'oil-subnav-link active' : 'oil-subnav-link'}>
+        <a
+          key={link.href + link.label}
+          href={link.href}
+          className={link.active ? 'section-subnav-link active' : 'section-subnav-link'}
+        >
           {link.label}
         </a>
       ))}
@@ -210,17 +220,28 @@ export function OilSubnav({ links }: { links: { href: string; label: string; act
   )
 }
 
+/** @deprecated Use SectionSubnav via DashboardNavGroup subnav */
+export function OilSubnav({ links }: { links: { href: string; label: string; active?: boolean }[] }) {
+  return <SectionSubnav links={links} label="Oil dashboards" />
+}
+
 export function DashboardNavGroup({
   links,
+  subnav,
+  subnavLabel = 'Section dashboards',
   oilSubnav,
 }: {
   links: { href: string; label: string; active?: boolean }[]
+  subnav?: { href: string; label: string; active?: boolean }[]
+  subnavLabel?: string
+  /** @deprecated Use subnav */
   oilSubnav?: { href: string; label: string; active?: boolean }[]
 }) {
+  const sectionSubnav = subnav ?? oilSubnav
   return (
     <div className="dashboard-nav-group">
       <DashboardNav links={links} />
-      {oilSubnav && <OilSubnav links={oilSubnav} />}
+      {sectionSubnav && <SectionSubnav links={sectionSubnav} label={subnavLabel} />}
     </div>
   )
 }

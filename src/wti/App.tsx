@@ -8,8 +8,11 @@ import {
 } from '../components/DashboardUi'
 import { SpreadHistoryCard } from '../oil/SpreadHistoryCard'
 import { spreadFredSources } from '../oil/wtiBrentSpread'
+import { dashboardNav } from '../metals/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
+
+const nav = dashboardNav('wti')
 
 export default function WtiApp() {
   return (
@@ -17,19 +20,7 @@ export default function WtiApp() {
       <header className="dashboard-header">
         <FlameIcon />
         <h1>WTI Cushing Early-Warning Dashboard</h1>
-        <DashboardNavGroup
-          links={[
-            { href: '../', label: 'Silver' },
-            { href: '../natgas/', label: 'NatGas' },
-            { href: '../gold/', label: 'Gold' },
-            { href: '../copper/', label: 'Copper' },
-            { href: './', label: 'Oil', active: true },
-          ]}
-          oilSubnav={[
-            { href: './', label: 'WTI', active: true },
-            { href: '../brent/', label: 'Brent' },
-          ]}
-        />
+        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Oil dashboards" />
       </header>
 
       <main className="dashboard-body">

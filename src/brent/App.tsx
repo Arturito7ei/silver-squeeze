@@ -8,8 +8,11 @@ import {
 } from '../components/DashboardUi'
 import { SpreadHistoryCard } from '../oil/SpreadHistoryCard'
 import { spreadFredSources } from '../oil/wtiBrentSpread'
+import { dashboardNav } from '../metals/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
+
+const nav = dashboardNav('brent')
 
 export default function BrentApp() {
   return (
@@ -17,19 +20,7 @@ export default function BrentApp() {
       <header className="dashboard-header">
         <FlameIcon />
         <h1>Brent Early-Warning Dashboard</h1>
-        <DashboardNavGroup
-          links={[
-            { href: '../', label: 'Silver' },
-            { href: '../natgas/', label: 'NatGas' },
-            { href: '../gold/', label: 'Gold' },
-            { href: '../copper/', label: 'Copper' },
-            { href: './', label: 'Oil', active: true },
-          ]}
-          oilSubnav={[
-            { href: '../wti/', label: 'WTI' },
-            { href: './', label: 'Brent', active: true },
-          ]}
-        />
+        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Oil dashboards" />
       </header>
 
       <main className="dashboard-body">

@@ -1,13 +1,16 @@
 import {
   CardIcon,
   Chip,
-  DashboardNav,
+  DashboardNavGroup,
   FlameIcon,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
+import { dashboardNav } from '../metals/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
+
+const nav = dashboardNav('natgas')
 
 export default function NatGasApp() {
   return (
@@ -15,15 +18,7 @@ export default function NatGasApp() {
       <header className="dashboard-header">
         <FlameIcon />
         <h1>NatGas Storage Early-Warning Dashboard</h1>
-        <DashboardNav
-          links={[
-            { href: '../', label: 'Silver' },
-            { href: './', label: 'NatGas', active: true },
-            { href: '../gold/', label: 'Gold' },
-            { href: '../copper/', label: 'Copper' },
-            { href: '../wti/', label: 'Oil' },
-          ]}
-        />
+        <DashboardNavGroup links={nav.links} />
       </header>
 
       <main className="dashboard-body">

@@ -2,12 +2,17 @@ import {
   CardIcon,
   Chip,
   CompassIcon,
-  DashboardNav,
+  DashboardNavGroup,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
+import { CopperGoldRatioCard } from '../metals/CopperGoldRatioCard'
+import { copperGoldSources } from '../metals/copperGoldRatio'
+import { dashboardNav } from '../metals/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
+
+const nav = dashboardNav('copper')
 
 export default function CopperApp() {
   return (
@@ -15,15 +20,7 @@ export default function CopperApp() {
       <header className="dashboard-header">
         <CompassIcon />
         <h1>Copper Warehouse Early-Warning Dashboard</h1>
-        <DashboardNav
-          links={[
-            { href: '../', label: 'Silver' },
-            { href: '../natgas/', label: 'NatGas' },
-            { href: '../gold/', label: 'Gold' },
-            { href: './', label: 'Copper', active: true },
-            { href: '../wti/', label: 'Oil' },
-          ]}
-        />
+        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Metals dashboards" />
       </header>
 
       <main className="dashboard-body">
@@ -166,16 +163,29 @@ export default function CopperApp() {
           />
         </section>
 
+        <section className="row chart-row-full">
+          <CopperGoldRatioCard />
+        </section>
+
         <footer className="disclaimer">
           Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX warehouse
           reports). Units: short tons (st). HG = 12.5 st/contract. Coverage chart shows the current 7:1 / 14% print
-          only — no interpolated history. Not investment advice.{' '}
+          only — no interpolated history. Copper priced in gold from IMF monthly averages (PCOPP ÷ PGOLD,
+          2024-09→2026-08). Not investment advice.{' '}
           <a href={d.sourceUrl} target="_blank" rel="noreferrer">
             Copper
           </a>
           {' · '}
           <a href={d.sourceComex} target="_blank" rel="noreferrer">
             COMEX
+          </a>
+          {' · '}
+          <a href={copperGoldSources.imf} target="_blank" rel="noreferrer">
+            IMF commodity prices
+          </a>
+          {' · '}
+          <a href={copperGoldSources.fredCopper} target="_blank" rel="noreferrer">
+            FRED PCOPPUSDM
           </a>
         </footer>
       </main>

@@ -33,11 +33,13 @@
   margin-left: 0;
 }
 
+.section-subnav,
 .oil-subnav {
   display: flex;
   gap: 4px;
 }
 
+.section-subnav-link,
 .oil-subnav-link {
   color: #9aa0ab;
   text-decoration: none;
@@ -48,11 +50,13 @@
   border: 1px solid #3a3f4b;
 }
 
+.section-subnav-link:hover,
 .oil-subnav-link:hover {
   color: #f5f5f5;
   border-color: #5a6070;
 }
 
+.section-subnav-link.active,
 .oil-subnav-link.active {
   color: #1a1d24;
   background: #d4d8de;
