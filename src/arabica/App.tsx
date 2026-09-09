@@ -1,9 +1,4 @@
-import {
-  CardIcon,
-  CompassIcon,
-  KpiCard,
-  LineChartCard,
-} from '../components/DashboardUi'
+import { CardIcon, KpiCard, LineChartCard } from '../components/DashboardUi'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
 import { dashboardNav } from '../nav/navLinks'
@@ -16,7 +11,7 @@ export default function ArabicaApp() {
   return (
     <div className="dashboard">
       <DashboardHeader
-        icon={<CompassIcon />}
+        markSrc={nav.markSrc}
         subtitle="Arabica · ICE Coffee C"
         links={nav.links}
         subnav={nav.subnav}

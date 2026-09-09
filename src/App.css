@@ -139,11 +139,11 @@
   color: #2563eb;
 }
 
-.compass-icon {
-  width: 28px;
-  height: 28px;
+.pcdd-mark {
+  height: 36px;
+  width: auto;
   flex-shrink: 0;
-  color: #c0c4cc;
+  display: block;
 }
 
 .dashboard-body {
@@ -294,6 +294,11 @@
 .delta-positive {
   font-size: 0.85rem;
   color: #047857;
+}
+
+.delta-negative {
+  font-size: 0.85rem;
+  color: #c0392b;
 }
 
 .card-footer {

@@ -1,10 +1,4 @@
-import {
-  CardIcon,
-  Chip,
-  CompassIcon,
-  KpiCard,
-  LineChartCard,
-} from './components/DashboardUi'
+import { CardIcon, Chip, KpiCard, LineChartCard } from './components/DashboardUi'
 import { DashboardHeader } from './components/DashboardHeader'
 import { CurveCard } from './curve/CurveCard'
 import { dashboardData as d } from './data/mockData'
@@ -19,7 +13,7 @@ export default function App() {
   return (
     <div className="dashboard">
       <DashboardHeader
-        icon={<CompassIcon />}
+        markSrc={nav.markSrc}
         subtitle="Silver · COMEX registered"
         links={nav.links}
         subnav={nav.subnav}

@@ -1,10 +1,4 @@
-import {
-  CardIcon,
-  Chip,
-  FlameIcon,
-  KpiCard,
-  LineChartCard,
-} from '../components/DashboardUi'
+import { CardIcon, Chip, KpiCard, LineChartCard } from '../components/DashboardUi'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
 import { dashboardNav } from '../nav/navLinks'
@@ -17,7 +11,7 @@ export default function NatGasApp() {
   return (
     <div className="dashboard">
       <DashboardHeader
-        icon={<FlameIcon />}
+        markSrc={nav.markSrc}
         subtitle="NatGas · EIA L48 working gas"
         links={nav.links}
         subnav={nav.subnav}

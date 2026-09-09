@@ -1,20 +1,21 @@
 import { CardIcon, Chip, KpiCard, LineChartCard } from '../components/DashboardUi'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
-import { GoldSilverRatioCard } from '../metals/GoldSilverRatioCard'
-import { goldSilverSources, goldSilverSpotFootnote } from '../metals/goldSilverRatio'
 import { dashboardNav } from '../nav/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
 
-const nav = dashboardNav('gold')
+const nav = dashboardNav('platinum')
 
-export default function GoldApp() {
+export default function PlatinumApp() {
+  const deltaClass = d.registeredDelta30dPct >= 0 ? 'delta-positive' : 'delta-negative'
+  const deltaSign = d.registeredDelta30dPct > 0 ? '+' : ''
+
   return (
     <div className="dashboard">
       <DashboardHeader
         markSrc={nav.markSrc}
-        subtitle="Gold · COMEX registered"
+        subtitle="Platinum · NYMEX registered"
         links={nav.links}
         subnav={nav.subnav}
         subnavLabel={nav.subnavLabel}
@@ -39,13 +40,16 @@ export default function GoldApp() {
             title="Registered Tightness"
             primary={
               <>
-                Registered <strong>{d.registeredMoz} Moz</strong>{' '}
-                <span className="delta-positive">(+{d.registeredDelta30dPct}% 30d)</span>
+                Registered <strong>{d.registeredKoz} Koz</strong>{' '}
+                <span className={deltaClass}>
+                  ({deltaSign}
+                  {d.registeredDelta30dPct}% 30d)
+                </span>
               </>
             }
             secondary={
               <>
-                Eligible <strong>{d.eligibleMoz} Moz</strong> · Total <strong>{d.totalMoz} Moz</strong> · Req/Total{' '}
+                Eligible <strong>{d.eligibleKoz} Koz</strong> · Total <strong>{d.totalKoz} Koz</strong> · Req/Total{' '}
                 <strong>{d.reqTotalPct}%</strong>
               </>
             }
@@ -84,7 +88,7 @@ export default function GoldApp() {
         </section>
 
         <section className="row chart-row-full">
-          <CurveCard tab="gold" />
+          <CurveCard tab="platinum" />
         </section>
 
         <section className="row detail-row">
@@ -106,10 +110,10 @@ export default function GoldApp() {
                 <tr>
                   <td>
                     {d.delivery.stops30dContracts.toLocaleString()} ({d.delivery.stops30dKoz} Koz, ~$
-                    {d.delivery.stops30dValueB}B)
+                    {d.delivery.stops30dValueM}M)
                   </td>
                   <td>
-                    {d.delivery.sep4Contracts} ({d.delivery.sep4Koz} Koz)
+                    {d.delivery.sep4Contracts} ({d.delivery.sep4Oz} oz)
                   </td>
                   <td>{d.delivery.deliveryMonth}</td>
                   <td>{d.delivery.sep4VaultFlow}</td>
@@ -138,10 +142,10 @@ export default function GoldApp() {
 
         <section className="row chart-row">
           <LineChartCard
-            title="Historical Registered Gold"
+            title="Historical Registered Platinum"
             data={d.registeredHistory}
             yDomain={d.registeredYDomain}
-            yUnit=" Moz"
+            yUnit=" Koz"
             referenceLines={[
               { y: d.registeredAvg, label: 'Avg' },
               { y: d.registeredCritical, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
@@ -163,29 +167,21 @@ export default function GoldApp() {
           />
         </section>
 
-        <section className="row chart-row-full">
-          <GoldSilverRatioCard />
-        </section>
-
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX warehouse
-          reports). Coverage chart shows the current 3:1 / 33% print only — no interpolated history. Gold/silver ratio
-          from IMF monthly averages (PGOLD ÷ PSILVER, 2024-09→2026-08); Vault spot {goldSilverSpotFootnote} is a
-          footnote only — not mixed onto the IMF line. Not investment advice.{' '}
+          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX/NYMEX
+          warehouse reports). Registered chart = two cited points only (Aug 20 → Sep 4) — no interpolation. Coverage
+          chart shows the current 18:1 / 5.6% print only. Vault spot gold/platinum {d.goldPlatinumSpotFootnote} — footnote
+          only, no IMF history chart this release. Not investment advice.{' '}
           <a href={d.sourceUrl} target="_blank" rel="noreferrer">
-            Gold
+            Platinum
           </a>
           {' · '}
           <a href={d.sourceComex} target="_blank" rel="noreferrer">
             COMEX
           </a>
           {' · '}
-          <a href={goldSilverSources.imf} target="_blank" rel="noreferrer">
-            IMF commodity prices
-          </a>
-          {' · '}
-          <a href={goldSilverSources.vaultSpot} target="_blank" rel="noreferrer">
-            Vault gold/silver
+          <a href={d.sourceCot} target="_blank" rel="noreferrer">
+            CFTC OI
           </a>
         </footer>
       </main>
