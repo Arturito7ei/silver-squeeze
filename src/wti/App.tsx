@@ -1,10 +1,4 @@
-import {
-  CardIcon,
-  Chip,
-  FlameIcon,
-  KpiCard,
-  LineChartCard,
-} from '../components/DashboardUi'
+import { CardIcon, Chip, KpiCard, LineChartCard } from '../components/DashboardUi'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
 import { SpreadHistoryCard } from '../oil/SpreadHistoryCard'
@@ -19,7 +13,7 @@ export default function WtiApp() {
   return (
     <div className="dashboard">
       <DashboardHeader
-        icon={<FlameIcon />}
+        markSrc={nav.markSrc}
         subtitle="WTI · Cushing commercial crude"
         links={nav.links}
         subnav={nav.subnav}

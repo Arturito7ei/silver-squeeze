@@ -17,6 +17,7 @@ export default defineConfig({
         wti: resolve(__dirname, 'wti/index.html'),
         brent: resolve(__dirname, 'brent/index.html'),
         arabica: resolve(__dirname, 'arabica/index.html'),
+        platinum: resolve(__dirname, 'platinum/index.html'),
       },
     },
   },

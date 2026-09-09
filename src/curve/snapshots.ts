@@ -34,6 +34,14 @@ export const curveSnapshots = {
     citeLabel: 'Vault Report gold',
     citeUrl: 'https://thevaultreport.com/metals/gold',
   },
+  platinum: {
+    kind: 'contango',
+    label: 'CONTANGO',
+    print: 'Next month 1.23% over front',
+    asOf: '2026-09-09 (inventory 2026-09-04)',
+    citeLabel: 'Vault Report platinum',
+    citeUrl: 'https://thevaultreport.com/metals/platinum',
+  },
   copper: {
     kind: 'contango',
     label: 'CONTANGO',

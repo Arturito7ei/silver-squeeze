@@ -4,6 +4,7 @@ export type DashboardSection =
   | 'silver'
   | 'gold'
   | 'copper'
+  | 'platinum'
   | 'natgas'
   | 'wti'
   | 'brent'
@@ -13,6 +14,7 @@ export function dashboardNav(section: DashboardSection): {
   links: NavLink[]
   subnav?: NavLink[]
   subnavLabel: string
+  markSrc: string
 } {
   switch (section) {
     case 'silver':
@@ -26,8 +28,10 @@ export function dashboardNav(section: DashboardSection): {
           { href: './', label: 'Silver', active: true },
           { href: 'gold/', label: 'Gold' },
           { href: 'copper/', label: 'Copper' },
+          { href: 'platinum/', label: 'Platinum' },
         ],
         subnavLabel: 'Metals dashboards',
+        markSrc: './pcdd-mark.png',
       }
     case 'gold':
       return {
@@ -40,8 +44,10 @@ export function dashboardNav(section: DashboardSection): {
           { href: '../', label: 'Silver' },
           { href: './', label: 'Gold', active: true },
           { href: '../copper/', label: 'Copper' },
+          { href: '../platinum/', label: 'Platinum' },
         ],
         subnavLabel: 'Metals dashboards',
+        markSrc: '../pcdd-mark.png',
       }
     case 'copper':
       return {
@@ -54,8 +60,26 @@ export function dashboardNav(section: DashboardSection): {
           { href: '../', label: 'Silver' },
           { href: '../gold/', label: 'Gold' },
           { href: './', label: 'Copper', active: true },
+          { href: '../platinum/', label: 'Platinum' },
         ],
         subnavLabel: 'Metals dashboards',
+        markSrc: '../pcdd-mark.png',
+      }
+    case 'platinum':
+      return {
+        links: [
+          { href: './', label: 'Metals', active: true },
+          { href: '../wti/', label: 'Energy' },
+          { href: '../arabica/', label: 'Soft/Agri' },
+        ],
+        subnav: [
+          { href: '../', label: 'Silver' },
+          { href: '../gold/', label: 'Gold' },
+          { href: '../copper/', label: 'Copper' },
+          { href: './', label: 'Platinum', active: true },
+        ],
+        subnavLabel: 'Metals dashboards',
+        markSrc: '../pcdd-mark.png',
       }
     case 'natgas':
       return {
@@ -70,6 +94,7 @@ export function dashboardNav(section: DashboardSection): {
           { href: '../brent/', label: 'Brent' },
         ],
         subnavLabel: 'Energy dashboards',
+        markSrc: '../pcdd-mark.png',
       }
     case 'wti':
       return {
@@ -84,6 +109,7 @@ export function dashboardNav(section: DashboardSection): {
           { href: '../brent/', label: 'Brent' },
         ],
         subnavLabel: 'Energy dashboards',
+        markSrc: '../pcdd-mark.png',
       }
     case 'brent':
       return {
@@ -98,6 +124,7 @@ export function dashboardNav(section: DashboardSection): {
           { href: './', label: 'Brent', active: true },
         ],
         subnavLabel: 'Energy dashboards',
+        markSrc: '../pcdd-mark.png',
       }
     case 'arabica':
       return {
@@ -108,6 +135,7 @@ export function dashboardNav(section: DashboardSection): {
         ],
         subnav: [{ href: './', label: 'Arabica', active: true }],
         subnavLabel: 'Soft/Agri dashboards',
+        markSrc: '../pcdd-mark.png',
       }
   }
 }
