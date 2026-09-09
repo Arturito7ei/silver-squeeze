@@ -20,6 +20,7 @@ export default function GoldApp() {
             { href: '../', label: 'Silver' },
             { href: '../natgas/', label: 'NatGas' },
             { href: './', label: 'Gold', active: true },
+            { href: '../copper/', label: 'Copper' },
           ]}
         />
       </header>

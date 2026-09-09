@@ -5,22 +5,22 @@ import {
   DashboardNav,
   KpiCard,
   LineChartCard,
-} from './components/DashboardUi'
-import { dashboardData as d } from './data/mockData'
-import './App.css'
+} from '../components/DashboardUi'
+import { dashboardData as d } from './data'
+import '../App.css'
 
-export default function App() {
+export default function CopperApp() {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
         <CompassIcon />
-        <h1>Silver Squeeze Early-Warning Dashboard</h1>
+        <h1>Copper Warehouse Early-Warning Dashboard</h1>
         <DashboardNav
           links={[
-            { href: './', label: 'Silver', active: true },
-            { href: 'natgas/', label: 'NatGas' },
-            { href: 'gold/', label: 'Gold' },
-            { href: 'copper/', label: 'Copper' },
+            { href: '../', label: 'Silver' },
+            { href: '../natgas/', label: 'NatGas' },
+            { href: '../gold/', label: 'Gold' },
+            { href: './', label: 'Copper', active: true },
           ]}
         />
       </header>
@@ -41,16 +41,17 @@ export default function App() {
           />
           <KpiCard
             icon="cube"
-            title="Deliverable Tightness"
+            title="Registered Tightness"
             primary={
               <>
-                Registered <strong>{d.registeredMoz} Moz</strong>{' '}
-                <span className="delta">({d.registeredDelta} Moz)</span>
+                Registered <strong>{d.registeredKst}K st</strong>{' '}
+                <span className="delta-positive">(+{d.registeredDelta30dPct}% 30d)</span>
               </>
             }
             secondary={
               <>
-                Req/Total <strong>{d.reqTotalPct}%</strong> (registered / total stocks)
+                Eligible <strong>{d.eligibleKst}K st</strong> · Total <strong>{d.totalKst}K st</strong> · Req/Total{' '}
+                <strong>{d.reqTotalPct}%</strong>
               </>
             }
             chip={d.chips.tightness.text}
@@ -66,8 +67,9 @@ export default function App() {
             }
             secondary={
               <>
-                Implied OI <strong>{d.openInterestMoz} Moz</strong> at 5:1; {d.percentileLabel}{' '}
-                <strong>{d.percentile2y}th %ile</strong>
+                Vault Report <strong>{d.paperPhysicalRatio}:1</strong> → ~{d.impliedPaperKst.toLocaleString()}K st
+                paper (CFTC OI {d.openInterestContracts.toLocaleString()} ≈ {d.openInterestKst.toLocaleString()}K st
+                cross-check)
               </>
             }
             chip={d.chips.coverage.text}
@@ -96,18 +98,23 @@ export default function App() {
             <table className="delivery-table">
               <thead>
                 <tr>
-                  <th>MTD Deliveries</th>
-                  <th>Daily Notices</th>
+                  <th>30d Stops</th>
+                  <th>Sep 4 Stop</th>
                   <th>Delivery Month</th>
-                  <th>Intensity</th>
+                  <th>Vault Flow</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{d.delivery.mtdMoz} Moz</td>
-                  <td>{d.delivery.dailyNotices}</td>
+                  <td>
+                    {d.delivery.stops30dContracts.toLocaleString()} ({d.delivery.stops30dKst}K st, ~$
+                    {d.delivery.stops30dValueB}B)
+                  </td>
+                  <td>
+                    {d.delivery.sep4Contracts} ({d.delivery.sep4Kst}K st)
+                  </td>
                   <td>{d.delivery.deliveryMonth}</td>
-                  <td>{d.delivery.intensityPct}%</td>
+                  <td>{d.delivery.sep4VaultFlow}</td>
                 </tr>
               </tbody>
             </table>
@@ -133,25 +140,25 @@ export default function App() {
 
         <section className="row chart-row">
           <LineChartCard
-            title="Historical Registered Silver"
+            title="Historical Registered Copper"
             data={d.registeredHistory}
             yDomain={d.registeredYDomain}
-            yUnit=" Moz"
+            yUnit="K st"
             referenceLines={[
               { y: d.registeredAvg, label: 'Avg' },
-              { y: d.registeredCritical, label: 'Critical', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
+              { y: d.registeredCritical, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
             ]}
             stroke="#2563eb"
             tooltipLabel="Registered"
           />
           <LineChartCard
-            title="Coverage Ratio Trend"
+            title="Paper/Physical Coverage"
             data={d.coverageHistory}
             yDomain={d.coverageYDomain}
             yUnit="%"
             referenceLines={[
-              { y: d.coverageAvg, label: 'Avg' },
-              { y: d.coverageSqueeze, label: 'Squeeze', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
+              { y: d.coverageAvg, label: 'Current' },
+              { y: d.coverageTight, label: 'Tight', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
             ]}
             stroke="#db2777"
             tooltipLabel="Coverage"
@@ -159,11 +166,15 @@ export default function App() {
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report
-          (CME COMEX warehouse reports). Coverage history is the current 5:1 paper/physical print
-          only — no public daily coverage series was cited. Not investment advice.{' '}
+          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX warehouse
+          reports). Units: short tons (st). HG = 12.5 st/contract. Coverage chart shows the current 7:1 / 14% print
+          only — no interpolated history. Not investment advice.{' '}
           <a href={d.sourceUrl} target="_blank" rel="noreferrer">
-            Source
+            Copper
+          </a>
+          {' · '}
+          <a href={d.sourceComex} target="_blank" rel="noreferrer">
+            COMEX
           </a>
         </footer>
       </main>

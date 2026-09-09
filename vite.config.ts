@@ -13,6 +13,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         natgas: resolve(__dirname, 'natgas/index.html'),
         gold: resolve(__dirname, 'gold/index.html'),
+        copper: resolve(__dirname, 'copper/index.html'),
       },
     },
   },

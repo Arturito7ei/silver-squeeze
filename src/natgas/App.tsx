@@ -20,6 +20,7 @@ export default function NatGasApp() {
             { href: '../', label: 'Silver' },
             { href: './', label: 'NatGas', active: true },
             { href: '../gold/', label: 'Gold' },
+            { href: '../copper/', label: 'Copper' },
           ]}
         />
       </header>
