@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
@@ -6,4 +7,12 @@ export default defineConfig({
   plugins: [react()],
   // Relative base so GitHub project Pages and local preview both resolve assets.
   base: './',
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        natgas: resolve(__dirname, 'natgas/index.html'),
+      },
+    },
+  },
 })

@@ -1,24 +1,24 @@
 import {
   CardIcon,
   Chip,
-  CompassIcon,
   DashboardNav,
+  FlameIcon,
   KpiCard,
   LineChartCard,
-} from './components/DashboardUi'
-import { dashboardData as d } from './data/mockData'
-import './App.css'
+} from '../components/DashboardUi'
+import { dashboardData as d } from './data'
+import '../App.css'
 
-export default function App() {
+export default function NatGasApp() {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <CompassIcon />
-        <h1>Silver Squeeze Early-Warning Dashboard</h1>
+        <FlameIcon />
+        <h1>NatGas Storage Early-Warning Dashboard</h1>
         <DashboardNav
           links={[
-            { href: './', label: 'Silver', active: true },
-            { href: 'natgas/', label: 'NatGas' },
+            { href: '../', label: 'Silver' },
+            { href: './', label: 'NatGas', active: true },
           ]}
         />
       </header>
@@ -39,20 +39,21 @@ export default function App() {
           />
           <KpiCard
             icon="cube"
-            title="Deliverable Tightness"
+            title="L48 Working Gas"
             primary={
               <>
-                Registered <strong>{d.registeredMoz} Moz</strong>{' '}
-                <span className="delta">({d.registeredDelta} Moz)</span>
+                Storage <strong>{d.workingGasBcf.toLocaleString()} Bcf</strong>{' '}
+                <span className="delta-positive">(+{d.weeklyChangeBcf} Bcf)</span>
               </>
             }
             secondary={
               <>
-                Req/Total <strong>{d.reqTotalPct}%</strong> (registered / total stocks)
+                vs 5-yr avg <strong>+{d.vsFiveYearPct}%</strong> ({d.fiveYearAvgBcf.toLocaleString()} Bcf); vs
+                year-ago <strong>{d.vsYearAgoPct}%</strong>
               </>
             }
-            chip={d.chips.tightness.text}
-            chipVariant={d.chips.tightness.variant}
+            chip={d.chips.storage.text}
+            chipVariant={d.chips.storage.variant}
           />
           <KpiCard
             icon="zigzag"
@@ -64,8 +65,8 @@ export default function App() {
             }
             secondary={
               <>
-                Implied OI <strong>{d.openInterestMoz} Moz</strong> at 5:1; {d.percentileLabel}{' '}
-                <strong>{d.percentile2y}th %ile</strong>
+                NYMEX OI <strong>{d.openInterestContracts.toLocaleString()}</strong> contracts → ~
+                {d.impliedPaperBcf.toLocaleString()} Bcf paper at {d.paperPhysicalRatio}:1
               </>
             }
             chip={d.chips.coverage.text}
@@ -89,28 +90,28 @@ export default function App() {
           <article className="card delivery-card">
             <header className="section-header">
               <CardIcon variant="truck" />
-              <h2>Delivery Activity</h2>
+              <h2>Weekly Flow Activity</h2>
             </header>
             <table className="delivery-table">
               <thead>
                 <tr>
-                  <th>MTD Deliveries</th>
-                  <th>Daily Notices</th>
-                  <th>Delivery Month</th>
-                  <th>Intensity</th>
+                  <th>Net Injection</th>
+                  <th>Regional Leader</th>
+                  <th>Report Week</th>
+                  <th>vs 5-Yr Avg</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{d.delivery.mtdMoz} Moz</td>
-                  <td>{d.delivery.dailyNotices}</td>
-                  <td>{d.delivery.deliveryMonth}</td>
-                  <td>{d.delivery.intensityPct}%</td>
+                  <td>+{d.flow.netBcf} Bcf</td>
+                  <td>{d.flow.regionalLeader}</td>
+                  <td>{d.flow.reportWeek}</td>
+                  <td>+{d.flow.vsFiveYearPct}%</td>
                 </tr>
               </tbody>
             </table>
             <footer className="card-footer">
-              <Chip variant={d.chips.delivery.variant}>{d.chips.delivery.text}</Chip>
+              <Chip variant={d.chips.flow.variant}>{d.chips.flow.text}</Chip>
             </footer>
           </article>
 
@@ -131,25 +132,25 @@ export default function App() {
 
         <section className="row chart-row">
           <LineChartCard
-            title="Historical Registered Silver"
-            data={d.registeredHistory}
-            yDomain={d.registeredYDomain}
-            yUnit=" Moz"
+            title="L48 Working Gas (6 Weeks)"
+            data={d.storageHistory}
+            yDomain={d.storageYDomain}
+            yUnit=" Bcf"
             referenceLines={[
-              { y: d.registeredAvg, label: 'Avg' },
-              { y: d.registeredCritical, label: 'Critical', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
+              { y: d.storageAvg, label: '5-yr avg' },
+              { y: d.storageLowBand, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
             ]}
             stroke="#2563eb"
-            tooltipLabel="Registered"
+            tooltipLabel="Working gas"
           />
           <LineChartCard
-            title="Coverage Ratio Trend"
+            title="Paper/Physical Coverage Trend"
             data={d.coverageHistory}
             yDomain={d.coverageYDomain}
             yUnit="%"
             referenceLines={[
               { y: d.coverageAvg, label: 'Avg' },
-              { y: d.coverageSqueeze, label: 'Squeeze', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
+              { y: d.coverageTight, label: 'Tight', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
             ]}
             stroke="#db2777"
             tooltipLabel="Coverage"
@@ -157,11 +158,15 @@ export default function App() {
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report
-          (CME COMEX warehouse reports). Coverage history is the current 5:1 paper/physical print
-          only — no public daily coverage series was cited. Not investment advice.{' '}
+          Public snapshot, not a live EIA feed. Figures as of week ending 2026-08-28 from EIA Weekly Natural Gas
+          Storage Report. OI from CFTC COT (2026-08-25). Days cover uses ~90 Bcf/d STEO consumption divisor. Not
+          investment advice.{' '}
           <a href={d.sourceUrl} target="_blank" rel="noreferrer">
-            Source
+            EIA WNGSR
+          </a>
+          {' · '}
+          <a href={d.sourceJson} target="_blank" rel="noreferrer">
+            JSON
           </a>
         </footer>
       </main>
