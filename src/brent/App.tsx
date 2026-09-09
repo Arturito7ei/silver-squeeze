@@ -49,7 +49,10 @@ export default function BrentApp() {
             title="WTI–Brent Spread"
             primary={
               <>
-                Spread <strong>${d.spreadUsd.toFixed(2)}/bbl</strong>
+                Spread{' '}
+                <strong>
+                  {d.spreadUsd < 0 ? '−' : ''}${Math.abs(d.spreadUsd).toFixed(2)}/bbl
+                </strong>
               </>
             }
             secondary={

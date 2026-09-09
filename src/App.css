@@ -24,8 +24,13 @@
 }
 
 .dashboard-nav {
+  margin-left: auto;
   display: flex;
   gap: 8px;
+}
+
+.dashboard-nav-group .dashboard-nav {
+  margin-left: 0;
 }
 
 .oil-subnav {
