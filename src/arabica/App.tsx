@@ -1,7 +1,6 @@
 import {
   CardIcon,
-  Chip,
-  FlameIcon,
+  CompassIcon,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
@@ -11,14 +10,14 @@ import { dashboardNav } from '../nav/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
 
-const nav = dashboardNav('natgas')
+const nav = dashboardNav('arabica')
 
-export default function NatGasApp() {
+export default function ArabicaApp() {
   return (
     <div className="dashboard">
       <DashboardHeader
-        icon={<FlameIcon />}
-        subtitle="NatGas · EIA L48 working gas"
+        icon={<CompassIcon />}
+        subtitle="Arabica · ICE Coffee C"
         links={nav.links}
         subnav={nav.subnav}
         subnavLabel={nav.subnavLabel}
@@ -40,21 +39,15 @@ export default function NatGasApp() {
           />
           <KpiCard
             icon="cube"
-            title="L48 Working Gas"
+            title="Certified Stocks"
             primary={
               <>
-                Storage <strong>{d.workingGasBcf.toLocaleString()} Bcf</strong>{' '}
-                <span className="delta-positive">(+{d.weeklyChangeBcf} Bcf)</span>
+                Certified <strong>{d.certifiedBags.toLocaleString()} bags</strong>
               </>
             }
-            secondary={
-              <>
-                vs 5-yr avg <strong>+{d.vsFiveYearPct}%</strong> ({d.fiveYearAvgBcf.toLocaleString()} Bcf); vs
-                year-ago <strong>{d.vsYearAgoPct}%</strong>
-              </>
-            }
-            chip={d.chips.storage.text}
-            chipVariant={d.chips.storage.variant}
+            secondary={<>ICE Coffee C · {d.certifiedLowLabel}</>}
+            chip={d.chips.certs.text}
+            chipVariant={d.chips.certs.variant}
           />
           <KpiCard
             icon="zigzag"
@@ -66,8 +59,8 @@ export default function NatGasApp() {
             }
             secondary={
               <>
-                NYMEX OI <strong>{d.openInterestContracts.toLocaleString()}</strong> contracts → ~
-                {d.impliedPaperBcf.toLocaleString()} Bcf paper at {d.paperPhysicalRatio}:1
+                Paper/physical <strong>{d.paperPhysicalRatio}:1</strong> · CFTC OI{' '}
+                <strong>{d.openInterestContracts.toLocaleString()}</strong> × {d.contractBags} bags/contract
               </>
             }
             chip={d.chips.coverage.text}
@@ -75,49 +68,46 @@ export default function NatGasApp() {
           />
           <KpiCard
             icon="clock"
-            title="Days of Cover"
+            title="Physical Mechanism"
             primary={
               <>
-                Days Cover <strong>{d.daysCover} days</strong>
+                Contract <strong>{d.contractSizeLb.toLocaleString()} lb</strong> (~{d.contractBags} bags)
               </>
             }
             secondary={<>{d.daysCoverBasis}</>}
-            chip={d.chips.cover.text}
-            chipVariant={d.chips.cover.variant}
+            chip={d.chips.physical.text}
+            chipVariant={d.chips.physical.variant}
           />
         </section>
 
         <section className="row chart-row-full">
-          <CurveCard tab="natgas" />
+          <CurveCard tab="arabica" />
         </section>
 
         <section className="row detail-row">
           <article className="card delivery-card">
             <header className="section-header">
               <CardIcon variant="truck" />
-              <h2>Weekly Flow Activity</h2>
+              <h2>Flow & Contrast</h2>
             </header>
             <table className="delivery-table">
               <thead>
                 <tr>
-                  <th>Net Injection</th>
-                  <th>Regional Leader</th>
-                  <th>Report Week</th>
-                  <th>vs 5-Yr Avg</th>
+                  <th>Brazil Exports</th>
+                  <th>World Crop</th>
+                  <th>Pending Grading</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>+{d.flow.netBcf} Bcf</td>
-                  <td>{d.flow.regionalLeader}</td>
-                  <td>{d.flow.reportWeek}</td>
-                  <td>+{d.flow.vsFiveYearPct}%</td>
+                  <td>
+                    {d.delivery.brazilExportsT.toLocaleString()} t (+{d.delivery.brazilExportsYoyPct}% y/y, Aug)
+                  </td>
+                  <td>Rabobank surplus ~{(d.delivery.rabobankSurplusBags / 1_000_000).toFixed(1)}M bags</td>
+                  <td>Footnote only — see disclaimer</td>
                 </tr>
               </tbody>
             </table>
-            <footer className="card-footer">
-              <Chip variant={d.chips.flow.variant}>{d.chips.flow.text}</Chip>
-            </footer>
           </article>
 
           <article className="card alerts-card">
@@ -137,41 +127,43 @@ export default function NatGasApp() {
 
         <section className="row chart-row">
           <LineChartCard
-            title="L48 Working Gas (6 Weeks)"
-            data={d.storageHistory}
-            yDomain={d.storageYDomain}
-            yUnit=" Bcf"
+            title="ICE Certified Arabica (3 Points)"
+            data={d.certHistory}
+            yDomain={d.certYDomain}
+            yUnit=" bags"
             referenceLines={[
-              { y: d.storageAvg, label: '5-yr avg' },
-              { y: d.storageLowBand, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
+              { y: d.certAvg, label: 'Mid' },
+              { y: d.certLowBand, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
             ]}
             stroke="#2563eb"
-            tooltipLabel="Working gas"
+            tooltipLabel="Certified bags"
           />
           <LineChartCard
-            title="Paper/Physical Coverage Trend"
+            title="Paper/Physical Coverage"
             data={d.coverageHistory}
             yDomain={d.coverageYDomain}
             yUnit="%"
-            referenceLines={[
-              { y: d.coverageAvg, label: 'Avg' },
-              { y: d.coverageTight, label: 'Tight', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
-            ]}
+            referenceLines={[{ y: d.coverageAvg, label: 'Current' }]}
             stroke="#db2777"
             tooltipLabel="Coverage"
           />
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live EIA feed. Figures as of week ending 2026-08-28 from EIA Weekly Natural Gas
-          Storage Report. OI from CFTC COT (2026-08-25). Days cover uses ~90 Bcf/d STEO consumption divisor. Not
-          investment advice.{' '}
-          <a href={d.sourceUrl} target="_blank" rel="noreferrer">
-            EIA WNGSR
+          Public snapshot, not a live ICE feed. Certified stocks as of 2026-09-08; CFTC Coffee C OI 155,275 (report
+          2026-09-01). Cert chart = three cited points only — no interpolation. Coverage = one sourced point (0.50% on
+          8 Sep certs / 1 Sep OI). {d.footnotes.pendingGrading}. {d.footnotes.geography}. {d.footnotes.oiVintage}.{' '}
+          {d.footnotes.robusta}. Not investment advice.{' '}
+          <a href={d.sourceCerts} target="_blank" rel="noreferrer">
+            Vietnam.vn / ICE certs
           </a>
           {' · '}
-          <a href={d.sourceJson} target="_blank" rel="noreferrer">
-            JSON
+          <a href={d.sourceOi} target="_blank" rel="noreferrer">
+            COT-Trader hub
+          </a>
+          {' · '}
+          <a href={d.sourceIce} target="_blank" rel="noreferrer">
+            ICE Coffee C specs
           </a>
         </footer>
       </main>

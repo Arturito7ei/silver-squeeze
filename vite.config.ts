@@ -16,6 +16,7 @@ export default defineConfig({
         copper: resolve(__dirname, 'copper/index.html'),
         wti: resolve(__dirname, 'wti/index.html'),
         brent: resolve(__dirname, 'brent/index.html'),
+        arabica: resolve(__dirname, 'arabica/index.html'),
       },
     },
   },

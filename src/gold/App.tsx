@@ -2,13 +2,14 @@ import {
   CardIcon,
   Chip,
   CompassIcon,
-  DashboardNavGroup,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
+import { DashboardHeader } from '../components/DashboardHeader'
+import { CurveCard } from '../curve/CurveCard'
 import { GoldSilverRatioCard } from '../metals/GoldSilverRatioCard'
 import { goldSilverSources, goldSilverSpotFootnote } from '../metals/goldSilverRatio'
-import { dashboardNav } from '../metals/navLinks'
+import { dashboardNav } from '../nav/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
 
@@ -17,11 +18,13 @@ const nav = dashboardNav('gold')
 export default function GoldApp() {
   return (
     <div className="dashboard">
-      <header className="dashboard-header">
-        <CompassIcon />
-        <h1>Gold Warehouse Early-Warning Dashboard</h1>
-        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Metals dashboards" />
-      </header>
+      <DashboardHeader
+        icon={<CompassIcon />}
+        subtitle="Gold · COMEX registered"
+        links={nav.links}
+        subnav={nav.subnav}
+        subnavLabel={nav.subnavLabel}
+      />
 
       <main className="dashboard-body">
         <section className="row kpi-row">
@@ -84,6 +87,10 @@ export default function GoldApp() {
             chip={d.chips.cover.text}
             chipVariant={d.chips.cover.variant}
           />
+        </section>
+
+        <section className="row chart-row-full">
+          <CurveCard tab="gold" />
         </section>
 
         <section className="row detail-row">

@@ -1,14 +1,15 @@
 import {
   CardIcon,
   Chip,
-  DashboardNavGroup,
   FlameIcon,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
+import { DashboardHeader } from '../components/DashboardHeader'
+import { CurveCard } from '../curve/CurveCard'
 import { SpreadHistoryCard } from '../oil/SpreadHistoryCard'
 import { spreadFredSources } from '../oil/wtiBrentSpread'
-import { dashboardNav } from '../metals/navLinks'
+import { dashboardNav } from '../nav/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
 
@@ -17,11 +18,13 @@ const nav = dashboardNav('wti')
 export default function WtiApp() {
   return (
     <div className="dashboard">
-      <header className="dashboard-header">
-        <FlameIcon />
-        <h1>WTI Cushing Early-Warning Dashboard</h1>
-        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Oil dashboards" />
-      </header>
+      <DashboardHeader
+        icon={<FlameIcon />}
+        subtitle="WTI · Cushing commercial crude"
+        links={nav.links}
+        subnav={nav.subnav}
+        subnavLabel={nav.subnavLabel}
+      />
 
       <main className="dashboard-body">
         <section className="row kpi-row">
@@ -84,6 +87,10 @@ export default function WtiApp() {
             chip={d.chips.cover.text}
             chipVariant={d.chips.cover.variant}
           />
+        </section>
+
+        <section className="row chart-row-full">
+          <CurveCard tab="wti" />
         </section>
 
         <section className="row detail-row">

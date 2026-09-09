@@ -2,13 +2,14 @@ import {
   CardIcon,
   Chip,
   CompassIcon,
-  DashboardNavGroup,
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
+import { DashboardHeader } from '../components/DashboardHeader'
+import { CurveCard } from '../curve/CurveCard'
 import { CopperGoldRatioCard } from '../metals/CopperGoldRatioCard'
 import { copperGoldSources } from '../metals/copperGoldRatio'
-import { dashboardNav } from '../metals/navLinks'
+import { dashboardNav } from '../nav/navLinks'
 import { dashboardData as d } from './data'
 import '../App.css'
 
@@ -17,11 +18,13 @@ const nav = dashboardNav('copper')
 export default function CopperApp() {
   return (
     <div className="dashboard">
-      <header className="dashboard-header">
-        <CompassIcon />
-        <h1>Copper Warehouse Early-Warning Dashboard</h1>
-        <DashboardNavGroup links={nav.links} subnav={nav.subnav} subnavLabel="Metals dashboards" />
-      </header>
+      <DashboardHeader
+        icon={<CompassIcon />}
+        subtitle="Copper · COMEX registered"
+        links={nav.links}
+        subnav={nav.subnav}
+        subnavLabel={nav.subnavLabel}
+      />
 
       <main className="dashboard-body">
         <section className="row kpi-row">
@@ -87,6 +90,10 @@ export default function CopperApp() {
           />
         </section>
 
+        <section className="row chart-row-full">
+          <CurveCard tab="copper" />
+        </section>
+
         <section className="row detail-row">
           <article className="card delivery-card">
             <header className="section-header">
@@ -141,7 +148,7 @@ export default function CopperApp() {
             title="Historical Registered Copper"
             data={d.registeredHistory}
             yDomain={d.registeredYDomain}
-            yUnit="K st"
+            yUnit=" K st"
             referenceLines={[
               { y: d.registeredAvg, label: 'Avg' },
               { y: d.registeredCritical, label: 'Low band', stroke: '#c0392b', strokeWidth: 2, labelFill: '#c0392b' },
