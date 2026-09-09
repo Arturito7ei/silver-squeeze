@@ -11,7 +11,7 @@ import {
 import { dashboardData as d } from './data/mockData'
 import './App.css'
 
-type ChipVariant = 'critical' | 'high' | 'warning' | 'neutral'
+type ChipVariant = 'critical' | 'high' | 'warning' | 'neutral' | 'ok'
 type CardIconVariant = 'bar' | 'cube' | 'zigzag' | 'clock' | 'truck' | 'bell'
 
 function Chip({
@@ -185,8 +185,8 @@ export default function App() {
               </>
             }
             secondary={<>Last Update {d.lastUpdate}</>}
-            chip="SQUEEZE_SETUP"
-            chipVariant="critical"
+            chip={d.chips.status.text}
+            chipVariant={d.chips.status.variant}
           />
           <KpiCard
             icon="cube"
@@ -197,14 +197,13 @@ export default function App() {
                 <span className="delta">({d.registeredDelta} Moz)</span>
               </>
             }
-            primaryClass="text-danger"
             secondary={
               <>
-                Req/Total <strong>{d.reqTotalPct}%</strong>
+                Req/Total <strong>{d.reqTotalPct}%</strong> (registered / total stocks)
               </>
             }
-            chip="SQUEEZE RISK"
-            chipVariant="critical"
+            chip={d.chips.tightness.text}
+            chipVariant={d.chips.tightness.variant}
           />
           <KpiCard
             icon="zigzag"
@@ -216,12 +215,12 @@ export default function App() {
             }
             secondary={
               <>
-                Open Interest <strong>{d.openInterestMoz} Moz</strong>; 2y percentile{' '}
+                Implied OI <strong>{d.openInterestMoz} Moz</strong> at 5:1; {d.percentileLabel}{' '}
                 <strong>{d.percentile2y}th %ile</strong>
               </>
             }
-            chip="SQUEEZE CONDITIONS"
-            chipVariant="high"
+            chip={d.chips.coverage.text}
+            chipVariant={d.chips.coverage.variant}
           />
           <KpiCard
             icon="clock"
@@ -233,12 +232,11 @@ export default function App() {
             }
             secondary={
               <>
-                Global Demand <strong>{d.globalDemandMozDay} Moz/day</strong>
+                {d.daysCoverBasis}
               </>
             }
-            chip="LOW"
-            chipVariant="warning"
-            showWarningIcon
+            chip={d.chips.cover.text}
+            chipVariant={d.chips.cover.variant}
           />
         </section>
 
@@ -262,12 +260,12 @@ export default function App() {
                   <td>{d.delivery.mtdMoz} Moz</td>
                   <td>{d.delivery.dailyNotices}</td>
                   <td>{d.delivery.deliveryMonth}</td>
-                  <td className="text-danger">{d.delivery.intensityPct}%</td>
+                  <td>{d.delivery.intensityPct}%</td>
                 </tr>
               </tbody>
             </table>
             <footer className="card-footer">
-              <Chip variant="high">EXTREME PRESSURE</Chip>
+              <Chip variant={d.chips.delivery.variant}>{d.chips.delivery.text}</Chip>
             </footer>
           </article>
 
@@ -300,7 +298,7 @@ export default function App() {
                     monthTickFormatter(value, index, d.registeredHistory.map((p) => ({ value: p.month })))
                   }
                 />
-                <YAxis domain={[30, 90]} tick={{ fontSize: 12 }} stroke="#888" unit=" Moz" />
+                <YAxis domain={d.registeredYDomain} tick={{ fontSize: 12 }} stroke="#888" unit=" Moz" />
                 <Tooltip formatter={(v) => [`${v ?? ''} Moz`, 'Registered']} />
                 <ReferenceLine
                   y={d.registeredAvg}
@@ -339,7 +337,7 @@ export default function App() {
                     monthTickFormatter(value, index, d.coverageHistory.map((p) => ({ value: p.month })))
                   }
                 />
-                <YAxis domain={[4, 15]} tick={{ fontSize: 12 }} stroke="#888" unit="%" />
+                <YAxis domain={d.coverageYDomain} tick={{ fontSize: 12 }} stroke="#888" unit="%" />
                 <Tooltip formatter={(v) => [`${v ?? ''}%`, 'Coverage']} />
                 <ReferenceLine
                   y={d.coverageAvg}
@@ -367,7 +365,12 @@ export default function App() {
         </section>
 
         <footer className="disclaimer">
-          Mock data for prototype purposes only. Not investment advice.
+          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report
+          (CME COMEX warehouse reports). Coverage history is the current 5:1 paper/physical print
+          only — no public daily coverage series was cited. Not investment advice.{' '}
+          <a href={d.sourceUrl} target="_blank" rel="noreferrer">
+            Source
+          </a>
         </footer>
       </main>
     </div>

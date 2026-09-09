@@ -1,12 +1,17 @@
 # Silver Squeeze Early-Warning Dashboard
 
-COMEX silver squeeze early-warning board — v0 UI clone of the Figma Make prototype.
+COMEX silver squeeze early-warning board. **Status:** prototype. PRODUCT intent; not an incubated 7Ei venture.
 
-**Status:** prototype / mocked data. Not an incubated 7Ei venture until owner says PRODUCT.
+Live (GitHub Pages): https://arturito7ei.github.io/silver-squeeze/
 
-## Spec
+## Data
 
-Layout and numbers from `RESEARCH/SILVER_SQUEEZE_DASHBOARD_INTAKE.md` in the Buzz nest.
+Numbers are a **public snapshot**, not a CME DataMine socket. Current print (compiled 2026-09-09):
+
+- COMEX registered silver **99.39 Moz** (99,386,946 oz) as of **2026-09-04**
+- Source: [The Vault Report](https://thevaultreport.com/metals/silver) citing CME COMEX warehouse reports
+
+This is **not** the February Figma mock (47.2 Moz / risk 100). Chips follow the mock thresholds against the new print.
 
 ## Run locally
 
@@ -15,17 +20,9 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173
-
 ## Build
 
 ```bash
 npm run build
 npm run preview
 ```
-
-## v0 scope
-
-- Single-page dashboard with mocked KPIs, alerts, and 90-day charts
-- No live CME/COMEX feeds
-- Disclaimer: not investment advice

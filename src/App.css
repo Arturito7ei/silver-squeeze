@@ -169,6 +169,12 @@
   border: 1px solid #fde68a;
 }
 
+.chip-ok {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
 .chip-neutral {
   background: #f3f4f6;
   color: #4b5563;
@@ -233,6 +239,10 @@
 
 .alert-warning {
   background: #ea580c;
+}
+
+.alert-info {
+  background: #334155;
 }
 
 .chart-card h2 {
