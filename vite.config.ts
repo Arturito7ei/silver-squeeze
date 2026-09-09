@@ -15,6 +15,7 @@ export default defineConfig({
         gold: resolve(__dirname, 'gold/index.html'),
         copper: resolve(__dirname, 'copper/index.html'),
         wti: resolve(__dirname, 'wti/index.html'),
+        brent: resolve(__dirname, 'brent/index.html'),
       },
     },
   },

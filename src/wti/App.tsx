@@ -1,7 +1,7 @@
 import {
   CardIcon,
   Chip,
-  DashboardNav,
+  DashboardNavGroup,
   FlameIcon,
   KpiCard,
   LineChartCard,
@@ -15,13 +15,17 @@ export default function WtiApp() {
       <header className="dashboard-header">
         <FlameIcon />
         <h1>WTI Cushing Early-Warning Dashboard</h1>
-        <DashboardNav
+        <DashboardNavGroup
           links={[
             { href: '../', label: 'Silver' },
             { href: '../natgas/', label: 'NatGas' },
             { href: '../gold/', label: 'Gold' },
             { href: '../copper/', label: 'Copper' },
+            { href: './', label: 'Oil', active: true },
+          ]}
+          oilSubnav={[
             { href: './', label: 'WTI', active: true },
+            { href: '../brent/', label: 'Brent' },
           ]}
         />
       </header>

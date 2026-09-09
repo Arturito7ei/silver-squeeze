@@ -190,11 +190,38 @@ export function DashboardNav({ links }: { links: { href: string; label: string; 
   return (
     <nav className="dashboard-nav" aria-label="Dashboards">
       {links.map((link) => (
-        <a key={link.href} href={link.href} className={link.active ? 'nav-link active' : 'nav-link'}>
+        <a key={link.href + link.label} href={link.href} className={link.active ? 'nav-link active' : 'nav-link'}>
           {link.label}
         </a>
       ))}
     </nav>
+  )
+}
+
+export function OilSubnav({ links }: { links: { href: string; label: string; active?: boolean }[] }) {
+  return (
+    <nav className="oil-subnav" aria-label="Oil dashboards">
+      {links.map((link) => (
+        <a key={link.href + link.label} href={link.href} className={link.active ? 'oil-subnav-link active' : 'oil-subnav-link'}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  )
+}
+
+export function DashboardNavGroup({
+  links,
+  oilSubnav,
+}: {
+  links: { href: string; label: string; active?: boolean }[]
+  oilSubnav?: { href: string; label: string; active?: boolean }[]
+}) {
+  return (
+    <div className="dashboard-nav-group">
+      <DashboardNav links={links} />
+      {oilSubnav && <OilSubnav links={oilSubnav} />}
+    </div>
   )
 }
 
