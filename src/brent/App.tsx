@@ -6,6 +6,8 @@ import {
   KpiCard,
   LineChartCard,
 } from '../components/DashboardUi'
+import { SpreadHistoryCard } from '../oil/SpreadHistoryCard'
+import { spreadFredSources } from '../oil/wtiBrentSpread'
 import { dashboardData as d } from './data'
 import '../App.css'
 
@@ -158,10 +160,30 @@ export default function BrentApp() {
           />
         </section>
 
+        <section className="row chart-row-full">
+          <SpreadHistoryCard />
+        </section>
+
         <footer className="disclaimer">
           Public snapshot, not a live ICE feed. Spread as of 2026-09-01 from Vault Report WTI–Brent page. OI from CFTC
           NYMEX Brent Last Day (06765T, 2026-09-01) — not ICE Brent futures. No warehouse series; no interpolated
-          history. Not investment advice.{' '}
+          history. Spread history from FRED daily (
+          <a href={spreadFredSources.wtiDaily} target="_blank" rel="noreferrer">
+            DCOILWTICO
+          </a>
+          ,{' '}
+          <a href={spreadFredSources.brentDaily} target="_blank" rel="noreferrer">
+            DCOILBRENTEU
+          </a>
+          ) and monthly average (
+          <a href={spreadFredSources.wtiMonthly} target="_blank" rel="noreferrer">
+            MCOILWTICO
+          </a>
+          ,{' '}
+          <a href={spreadFredSources.brentMonthly} target="_blank" rel="noreferrer">
+            MCOILBRENTEU
+          </a>
+          ); 2026-08-31 omitted (Brent blank). Not investment advice.{' '}
           <a href={d.sourceSpread} target="_blank" rel="noreferrer">
             Vault Report WTI–Brent
           </a>
