@@ -1,7 +1,8 @@
 import { CardIcon, Chip, KpiCard, LineChartCard } from './components/DashboardUi'
 import { DashboardHeader } from './components/DashboardHeader'
 import { CurveCard } from './curve/CurveCard'
-import { dashboardData as d } from './data/mockData'
+import { LatestDataProvider } from './data/useLatestData'
+import { dashboardData as seed } from './data/mockData'
 import { GoldSilverRatioCard } from './metals/GoldSilverRatioCard'
 import { goldSilverSources, goldSilverSpotFootnote } from './metals/goldSilverRatio'
 import { dashboardNav } from './nav/navLinks'
@@ -11,6 +12,8 @@ const nav = dashboardNav('silver')
 
 export default function App() {
   return (
+    <LatestDataProvider tab="silver" seed={seed}>
+      {({ data: d, meta, refresh, refreshing }) => (
     <div className="dashboard">
       <DashboardHeader
         markSrc={nav.markSrc}
@@ -18,6 +21,9 @@ export default function App() {
         links={nav.links}
         subnav={nav.subnav}
         subnavLabel={nav.subnavLabel}
+        meta={meta}
+        onRefresh={refresh}
+        refreshing={refreshing}
       />
 
       <main className="dashboard-body">
@@ -181,5 +187,7 @@ export default function App() {
         </footer>
       </main>
     </div>
+      )}
+    </LatestDataProvider>
   )
 }

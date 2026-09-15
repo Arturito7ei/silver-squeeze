@@ -1,13 +1,17 @@
 import { CardIcon, Chip, KpiCard, LineChartCard } from '../components/DashboardUi'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
+import { LatestDataProvider } from '../data/useLatestData'
 import { dashboardNav } from '../nav/navLinks'
-import { dashboardData as d } from './data'
+import { dashboardData as seed } from './data'
 import '../App.css'
 
 const nav = dashboardNav('platinum')
 
 export default function PlatinumApp() {
+  return (
+    <LatestDataProvider tab="platinum" seed={seed}>
+      {({ data: d, meta, refresh, refreshing }) => {
   const deltaClass = d.registeredDelta30dPct >= 0 ? 'delta-positive' : 'delta-negative'
   const deltaSign = d.registeredDelta30dPct > 0 ? '+' : ''
 
@@ -19,6 +23,9 @@ export default function PlatinumApp() {
         links={nav.links}
         subnav={nav.subnav}
         subnavLabel={nav.subnavLabel}
+        meta={meta}
+        onRefresh={refresh}
+        refreshing={refreshing}
       />
 
       <main className="dashboard-body">
@@ -186,5 +193,8 @@ export default function PlatinumApp() {
         </footer>
       </main>
     </div>
+  )
+      }}
+    </LatestDataProvider>
   )
 }

@@ -1,14 +1,17 @@
 import { CardIcon, KpiCard, LineChartCard } from '../components/DashboardUi'
 import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
+import { LatestDataProvider } from '../data/useLatestData'
 import { dashboardNav } from '../nav/navLinks'
-import { dashboardData as d } from './data'
+import { dashboardData as seed } from './data'
 import '../App.css'
 
 const nav = dashboardNav('arabica')
 
 export default function ArabicaApp() {
   return (
+    <LatestDataProvider tab="arabica" seed={seed}>
+      {({ data: d, meta, refresh, refreshing }) => (
     <div className="dashboard">
       <DashboardHeader
         markSrc={nav.markSrc}
@@ -16,6 +19,9 @@ export default function ArabicaApp() {
         links={nav.links}
         subnav={nav.subnav}
         subnavLabel={nav.subnavLabel}
+        meta={meta}
+        onRefresh={refresh}
+        refreshing={refreshing}
       />
 
       <main className="dashboard-body">
@@ -163,5 +169,7 @@ export default function ArabicaApp() {
         </footer>
       </main>
     </div>
+      )}
+    </LatestDataProvider>
   )
 }

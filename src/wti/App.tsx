@@ -3,14 +3,17 @@ import { DashboardHeader } from '../components/DashboardHeader'
 import { CurveCard } from '../curve/CurveCard'
 import { SpreadHistoryCard } from '../oil/SpreadHistoryCard'
 import { spreadFredSources } from '../oil/wtiBrentSpread'
+import { LatestDataProvider } from '../data/useLatestData'
 import { dashboardNav } from '../nav/navLinks'
-import { dashboardData as d } from './data'
+import { dashboardData as seed } from './data'
 import '../App.css'
 
 const nav = dashboardNav('wti')
 
 export default function WtiApp() {
   return (
+    <LatestDataProvider tab="wti" seed={seed}>
+      {({ data: d, meta, refresh, refreshing }) => (
     <div className="dashboard">
       <DashboardHeader
         markSrc={nav.markSrc}
@@ -18,6 +21,9 @@ export default function WtiApp() {
         links={nav.links}
         subnav={nav.subnav}
         subnavLabel={nav.subnavLabel}
+        meta={meta}
+        onRefresh={refresh}
+        refreshing={refreshing}
       />
 
       <main className="dashboard-body">
@@ -195,5 +201,7 @@ export default function WtiApp() {
         </footer>
       </main>
     </div>
+      )}
+    </LatestDataProvider>
   )
 }
