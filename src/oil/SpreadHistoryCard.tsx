@@ -10,10 +10,11 @@ import {
   YAxis,
 } from 'recharts'
 import { monthTickFormatter } from '../components/DashboardUi'
+import { useLatestSeriesContext } from '../data/useLatestData'
 import {
-  spreadDaily,
+  spreadDaily as seedSpreadDaily,
   spreadDailyYDomain,
-  spreadMonthly,
+  spreadMonthly as seedSpreadMonthly,
   spreadMonthlyYDomain,
 } from './wtiBrentSpread'
 
@@ -33,8 +34,13 @@ function formatSpread(v: number) {
 
 export function SpreadHistoryCard() {
   const [timeframe, setTimeframe] = useState<Timeframe>('monthly')
+  const series = useLatestSeriesContext()
   const daily = timeframe === 'daily'
-  const data = daily ? spreadDaily : spreadMonthly
+  const data = daily
+    ? (series.spreadDaily?.length ? series.spreadDaily : seedSpreadDaily)
+    : series.spreadMonthly?.length
+      ? series.spreadMonthly
+      : seedSpreadMonthly
   const yDomain = daily ? spreadDailyYDomain : spreadMonthlyYDomain
   const ticks = data.map((p) => ({ value: p.month }))
 

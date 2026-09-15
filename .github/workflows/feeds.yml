@@ -1,0 +1,39 @@
+name: market-feeds
+
+on:
+  schedule:
+    # Weekdays 16:00 UTC — after US morning data releases
+    - cron: '0 16 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-feeds
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Pull EIA + FRED and update data log
+        run: node scripts/ingest-feeds.mjs
+
+      - name: Commit public/data only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/
+          if git diff --staged --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "chore(data): ingest EIA natgas + FRED oil spreads"
+            git push
+          fi

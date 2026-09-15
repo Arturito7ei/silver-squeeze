@@ -1,0 +1,1558 @@
+{
+  "pulledAt": "2026-09-09T00:00:00.000Z",
+  "asOf": "2026-09-09",
+  "sources": [
+    {
+      "id": "vault-silver",
+      "url": "https://thevaultreport.com/metals/silver",
+      "asOf": "2026-09-04"
+    },
+    {
+      "id": "vault-gold",
+      "url": "https://thevaultreport.com/metals/gold",
+      "asOf": "2026-09-04"
+    },
+    {
+      "id": "vault-copper",
+      "url": "https://thevaultreport.com/metals/copper",
+      "asOf": "2026-09-04"
+    },
+    {
+      "id": "vault-platinum",
+      "url": "https://thevaultreport.com/metals/platinum",
+      "asOf": "2026-09-04"
+    },
+    {
+      "id": "eia-natgas",
+      "url": "https://ir.eia.gov/ngs/wngsr.json",
+      "asOf": "2026-08-28"
+    },
+    {
+      "id": "eia-wti",
+      "url": "https://www.eia.gov/dnav/pet/pet_stoc_wstk_dcu_YCUOK_w.htm",
+      "asOf": "2026-08-28"
+    },
+    {
+      "id": "vault-brent",
+      "url": "https://thevaultreport.com/oil/wti-brent-spread",
+      "asOf": "2026-09-01"
+    },
+    {
+      "id": "ice-arabica",
+      "url": "https://www.vietnam.vn/en/gia-ca-phe-hom-nay-9-9-robusta-hoi-phuc-arabica-thap-nhat-2-thang",
+      "asOf": "2026-09-08"
+    },
+    {
+      "id": "fred-wti",
+      "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+      "asOf": "2026-09-09"
+    },
+    {
+      "id": "fred-brent",
+      "url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+      "asOf": "2026-09-09"
+    }
+  ],
+  "tabs": {
+    "silver": {
+      "lastUpdate": "2026-09-04 (COMEX warehouse report via The Vault Report)",
+      "sourceUrl": "https://thevaultreport.com/metals/silver",
+      "asOfExactOz": 99386946,
+      "riskScore": 22,
+      "registeredMoz": 99.39,
+      "registeredDelta": -0.32,
+      "reqTotalPct": 29.4,
+      "coverageRatio": 20,
+      "openInterestMoz": 497,
+      "percentileLabel": "8-mo percentile",
+      "percentile2y": 77,
+      "daysCover": 77,
+      "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal)",
+      "delivery": {
+        "mtdMoz": 25.2,
+        "dailyNotices": 24,
+        "deliveryMonth": "2026-09",
+        "intensityPct": 25.4
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "tightness": {
+          "text": "ABOVE 50 MOZ",
+          "variant": "ok"
+        },
+        "coverage": {
+          "text": "5:1 PAPER",
+          "variant": "ok"
+        },
+        "cover": {
+          "text": "77d COVER",
+          "variant": "ok"
+        },
+        "delivery": {
+          "text": "SEP DELIVERIES",
+          "variant": "warning"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "info",
+          "label": "REGISTERED ADEQUATE",
+          "text": "COMEX registered silver 99.39 Moz (99,386,946 oz) — above the 50 Moz squeeze threshold from the Figma mock"
+        },
+        {
+          "severity": "info",
+          "label": "COVERAGE",
+          "text": "Paper/physical 5:1 (coverage 20%, implied OI ~497 Moz) — not the 4.84% squeeze print from Feb"
+        },
+        {
+          "severity": "warning",
+          "label": "SEPTEMBER DELIVERIES",
+          "text": "25.2 Moz delivered in the first five September sessions (5,032 of 6,757 contracts standing 27 Aug) — 25.4% of registered"
+        },
+        {
+          "severity": "info",
+          "label": "COVER",
+          "text": "77 days withdrawal cover — above the 20-day LOW threshold from the Figma mock"
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 22/100 — 77th percentile of the 8-month registered record; Vault Report: nothing here demands attention today"
+        }
+      ],
+      "registeredHistory": [
+        {
+          "month": "Jun",
+          "value": 90
+        },
+        {
+          "month": "Jul",
+          "value": 95
+        },
+        {
+          "month": "Aug",
+          "value": 99.2
+        },
+        {
+          "month": "Sep",
+          "value": 99.39
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "Jun",
+          "value": 20
+        },
+        {
+          "month": "Jul",
+          "value": 20
+        },
+        {
+          "month": "Aug",
+          "value": 20
+        },
+        {
+          "month": "Sep",
+          "value": 20
+        }
+      ],
+      "registeredAvg": 95,
+      "registeredCritical": 50,
+      "coverageAvg": 20,
+      "coverageSqueeze": 5,
+      "registeredYDomain": [
+        50,
+        130
+      ],
+      "coverageYDomain": [
+        0,
+        30
+      ]
+    },
+    "gold": {
+      "lastUpdate": "2026-09-04 (COMEX warehouse report via The Vault Report)",
+      "sourceUrl": "https://thevaultreport.com/metals/gold",
+      "sourceComex": "https://thevaultreport.com/comex",
+      "riskScore": 18,
+      "registeredMoz": 15.11,
+      "eligibleMoz": 12.27,
+      "totalMoz": 27.38,
+      "reqTotalPct": 55.2,
+      "registeredDelta30dPct": 5.2,
+      "registeredRange30d": {
+        "low": 14.36,
+        "high": 15.11
+      },
+      "registeredDelta7dPct": 0,
+      "crossed15MozDate": "2026-09-01",
+      "coverageRatio": 33,
+      "paperPhysicalRatio": 3,
+      "impliedPaperMoz": 45.3,
+      "openInterestContracts": 415196,
+      "openInterestMoz": 41.52,
+      "daysCover": 172,
+      "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
+      "delivery": {
+        "stops30dContracts": 7644,
+        "stops30dKoz": 764.4,
+        "stops30dValueB": 3.4,
+        "stops30dPctRegistered": 5.1,
+        "sep4Contracts": 62,
+        "sep4Koz": 6.2,
+        "sep4VaultFlow": "+64 oz FILLING (eligible +64, registered 0)",
+        "deliveryMonth": "2026-09"
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "tightness": {
+          "text": "WITHIN RANGE",
+          "variant": "ok"
+        },
+        "coverage": {
+          "text": "3:1 PAPER",
+          "variant": "ok"
+        },
+        "cover": {
+          "text": "172D COVER",
+          "variant": "ok"
+        },
+        "delivery": {
+          "text": "BUILDING",
+          "variant": "warning"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "info",
+          "label": "WITHIN NORMAL RANGE",
+          "text": "Vault Report: registered inventory sits within its normal range — 36th percentile of 8-month record"
+        },
+        {
+          "severity": "info",
+          "label": "REGISTERED BUILDING",
+          "text": "15.11 Moz registered (+5.2% over 30d, range 14.36–15.11 Moz); crossed 15 Moz on 2026-09-01"
+        },
+        {
+          "severity": "info",
+          "label": "STOCKS MIX",
+          "text": "Eligible 12.27 Moz · Total 27.38 Moz · Req/Total 55.2%"
+        },
+        {
+          "severity": "warning",
+          "label": "30D STOPS",
+          "text": "7,644 contracts stopped (764.4 Koz, ~$3.4B) ≈ 5.1% of registered; Sep 4 house stop 62 contracts (6.2 Koz)"
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 18/100 — WATCH / WITHIN RANGE / BUILDING; not SQUEEZE_SETUP"
+        }
+      ],
+      "registeredHistory": [
+        {
+          "month": "01/08",
+          "value": 19.18
+        },
+        {
+          "month": "06/15",
+          "value": 15.42
+        },
+        {
+          "month": "07/28",
+          "value": 14.75
+        },
+        {
+          "month": "08/24",
+          "value": 14.78
+        },
+        {
+          "month": "09/04",
+          "value": 15.11
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "09/04",
+          "value": 33
+        }
+      ],
+      "registeredAvg": 15.5,
+      "registeredCritical": 12,
+      "coverageAvg": 33,
+      "coverageTight": 15,
+      "registeredYDomain": [
+        14,
+        20
+      ],
+      "coverageYDomain": [
+        25,
+        40
+      ]
+    },
+    "copper": {
+      "lastUpdate": "2026-09-04 (COMEX warehouse report via The Vault Report)",
+      "sourceUrl": "https://thevaultreport.com/metals/copper",
+      "sourceComex": "https://thevaultreport.com/comex",
+      "riskScore": 16,
+      "registeredKst": 477.7,
+      "eligibleKst": 289.6,
+      "totalKst": 767.3,
+      "reqTotalPct": 62.3,
+      "registeredDelta30dPct": 3.7,
+      "registeredRange30d": {
+        "low": 447.3,
+        "high": 477.7
+      },
+      "registeredDelta7dPct": 0.1,
+      "crossed450KstDate": "2026-08-25",
+      "coverageRatio": 14,
+      "paperPhysicalRatio": 7,
+      "impliedPaperKst": 3344,
+      "openInterestContracts": 282640,
+      "openInterestKst": 3533,
+      "daysCover": 469,
+      "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
+      "delivery": {
+        "stops30dContracts": 15044,
+        "stops30dKst": 188.1,
+        "stops30dValueB": 2.6,
+        "stops30dPctRegistered": 39,
+        "sep4Contracts": 40,
+        "sep4Kst": 0.5,
+        "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
+        "deliveryMonth": "2026-09"
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "tightness": {
+          "text": "8-MO HIGH",
+          "variant": "warning"
+        },
+        "coverage": {
+          "text": "7:1 PAPER",
+          "variant": "ok"
+        },
+        "cover": {
+          "text": "469D COVER",
+          "variant": "ok"
+        },
+        "delivery": {
+          "text": "BUILDING",
+          "variant": "warning"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "info",
+          "label": "8-MONTH HIGH",
+          "text": "Vault Report: registered inventory at 8-month high (100th percentile of 8-mo record) — amply stocked and still building"
+        },
+        {
+          "severity": "info",
+          "label": "REGISTERED BUILDING",
+          "text": "477.7K st registered (+3.7% over 30d, range 447.3–477.7K st); crossed 450K st on 2026-08-25"
+        },
+        {
+          "severity": "info",
+          "label": "STOCKS MIX",
+          "text": "Eligible 289.6K st · Total 767.3K st · Req/Total 62.3%"
+        },
+        {
+          "severity": "warning",
+          "label": "30D STOPS",
+          "text": "15,044 contracts stopped (188.1K st, ~$2.6B) ≈ 39% of registered; Sep 4 house stop 40 contracts (500 st)"
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 16/100 — WATCH / 8-MO HIGH / BUILDING; 7:1 paper shown but pile is ample (469d cover)"
+        }
+      ],
+      "registeredHistory": [
+        {
+          "month": "08/17",
+          "value": 449.6
+        },
+        {
+          "month": "08/20",
+          "value": 448.5
+        },
+        {
+          "month": "09/04",
+          "value": 477.7
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "09/04",
+          "value": 14
+        }
+      ],
+      "registeredAvg": 460,
+      "registeredCritical": 400,
+      "coverageAvg": 14,
+      "coverageTight": 15,
+      "registeredYDomain": [
+        440,
+        490
+      ],
+      "coverageYDomain": [
+        10,
+        20
+      ]
+    },
+    "platinum": {
+      "lastUpdate": "2026-09-04 (COMEX/NYMEX warehouse report via The Vault Report)",
+      "sourceUrl": "https://thevaultreport.com/metals/platinum",
+      "sourceComex": "https://thevaultreport.com/charts/comex/platinum",
+      "sourceCot": "https://futuresbench.com/cot/platinum/",
+      "riskScore": 32,
+      "registeredKoz": 190.8,
+      "eligibleKoz": 202.6,
+      "totalKoz": 393.4,
+      "reqTotalPct": 48.5,
+      "registeredDelta30dPct": -0.9,
+      "registeredDelta7dPct": 0,
+      "registeredRange30d": {
+        "low": 190.8,
+        "high": 192.5
+      },
+      "below200KozDate": "2026-07-02",
+      "coverageRatio": 5.6,
+      "paperPhysicalRatio": 18,
+      "impliedPaperMoz": 3.43,
+      "openInterestContracts": 68059,
+      "openInterestMoz": 3.403,
+      "daysCover": 33,
+      "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
+      "goldPlatinumSpotFootnote": "2.34 oz Au / oz Pt (Vault gold $4,450 / platinum $1,905, COMEX front-month, 2026-09-09)",
+      "delivery": {
+        "stops30dContracts": 89,
+        "stops30dKoz": 4.5,
+        "stops30dValueM": 8.5,
+        "sep4Contracts": 7,
+        "sep4Oz": 350,
+        "sep4VaultFlow": "0 oz",
+        "deliveryMonth": "2026-09"
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "tightness": {
+          "text": "8-MO LOW",
+          "variant": "warning"
+        },
+        "coverage": {
+          "text": "18:1 PAPER",
+          "variant": "ok"
+        },
+        "cover": {
+          "text": "33D COVER",
+          "variant": "warning"
+        },
+        "delivery": {
+          "text": "THIN",
+          "variant": "warning"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "warning",
+          "label": "8-MO LOW",
+          "text": "Registered 190.8 Koz at 6th percentile of 8-month record; fell below 200 Koz on 2026-07-02"
+        },
+        {
+          "severity": "warning",
+          "label": "THIN PILE",
+          "text": "30d −0.9%, 7d +0.0%, range 190.8–192.5 Koz — level is thin though curve is contango"
+        },
+        {
+          "severity": "info",
+          "label": "90-REPORT BUILD",
+          "text": "Vault desk: thin pile has lately been gaining on 90-report pace — build-side extreme on a small base"
+        },
+        {
+          "severity": "info",
+          "label": "STOCKS MIX",
+          "text": "Eligible 202.6 Koz · Total 393.4 Koz · Req/Total 48.5%"
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 32/100 — WATCH / 8-MO LOW / THIN / contango 1.23%; not SQUEEZE_SETUP"
+        }
+      ],
+      "registeredHistory": [
+        {
+          "month": "08/20",
+          "value": 192.5
+        },
+        {
+          "month": "09/04",
+          "value": 190.8
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "09/04",
+          "value": 5.6
+        }
+      ],
+      "registeredAvg": 191.65,
+      "registeredCritical": 191,
+      "coverageAvg": 5.6,
+      "coverageTight": 8,
+      "registeredYDomain": [
+        189,
+        194
+      ],
+      "coverageYDomain": [
+        4,
+        8
+      ]
+    },
+    "natgas": {
+      "lastUpdate": "2026-08-28 (EIA weekly storage, released 2026-09-03)",
+      "sourceUrl": "https://ir.eia.gov/ngs/ngs.html",
+      "sourceJson": "https://ir.eia.gov/ngs/wngsr.json",
+      "riskScore": 18,
+      "workingGasBcf": 3214,
+      "weeklyChangeBcf": 30,
+      "fiveYearAvgBcf": 3054,
+      "yearAgoBcf": 3264,
+      "vsFiveYearPct": 5.2,
+      "vsYearAgoPct": -1.5,
+      "coverageRatio": 18.2,
+      "paperPhysicalRatio": 5.5,
+      "openInterestContracts": 1762883,
+      "impliedPaperBcf": 17629,
+      "daysCover": 36,
+      "daysCoverBasis": "Working gas / ~90 Bcf/d US dry-gas use (EIA STEO)",
+      "flow": {
+        "netBcf": 30,
+        "regionalLeader": "East +26 Bcf",
+        "reportWeek": "2026-08-28",
+        "vsFiveYearPct": 5.2
+      },
+      "regions": {
+        "east": 26,
+        "midwest": 24,
+        "southCentral": -10,
+        "pacific": -8,
+        "mountain": -2
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "storage": {
+          "text": "ABOVE 5-YR AVG",
+          "variant": "ok"
+        },
+        "coverage": {
+          "text": "5.5:1 PAPER",
+          "variant": "ok"
+        },
+        "cover": {
+          "text": "36D COVER",
+          "variant": "ok"
+        },
+        "flow": {
+          "text": "INJECTION WEEK",
+          "variant": "warning"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "info",
+          "label": "WITHIN 5-YR RANGE",
+          "text": "EIA: Lower-48 working gas within the five-year historical range for this week"
+        },
+        {
+          "severity": "info",
+          "label": "ABOVE 5-YR AVG",
+          "text": "3,214 Bcf working gas — +5.2% vs 5-yr avg (3,054 Bcf); −1.5% vs year-ago (3,264 Bcf)"
+        },
+        {
+          "severity": "warning",
+          "label": "INJECTION WEEK",
+          "text": "Net +30 Bcf injection — East +26, Midwest +24, South Central −10, Pacific −8, Mountain −2"
+        },
+        {
+          "severity": "info",
+          "label": "PAPER COVERAGE",
+          "text": "NYMEX NG OI 1,762,883 contracts (CFTC 2026-08-25) → ~17,629 Bcf paper vs 3,214 Bcf storage (~18.2%, 5.5:1)"
+        },
+        {
+          "severity": "info",
+          "label": "NO SUPPLY STRESS",
+          "text": "Risk Score 18/100 — not a squeeze analogue; stocks above 5-yr avg and within normal band"
+        }
+      ],
+      "storageHistory": [
+        {
+          "month": "07/24",
+          "value": 3084
+        },
+        {
+          "month": "07/31",
+          "value": 3117
+        },
+        {
+          "month": "08/07",
+          "value": 3153
+        },
+        {
+          "month": "08/14",
+          "value": 3169
+        },
+        {
+          "month": "08/21",
+          "value": 3184
+        },
+        {
+          "month": "08/28",
+          "value": 3214
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "07/24",
+          "value": 17.5
+        },
+        {
+          "month": "07/31",
+          "value": 17.7
+        },
+        {
+          "month": "08/07",
+          "value": 17.9
+        },
+        {
+          "month": "08/14",
+          "value": 18
+        },
+        {
+          "month": "08/21",
+          "value": 18.1
+        },
+        {
+          "month": "08/28",
+          "value": 18.2
+        }
+      ],
+      "storageAvg": 3054,
+      "storageLowBand": 2800,
+      "coverageAvg": 18,
+      "coverageTight": 10,
+      "storageYDomain": [
+        2800,
+        3400
+      ],
+      "coverageYDomain": [
+        15,
+        22
+      ]
+    },
+    "wti": {
+      "lastUpdate": "2026-08-28 (EIA WPSR, released 2026-09-02)",
+      "sourceUrl": "https://www.eia.gov/dnav/pet/pet_stoc_wstk_dcu_YCUOK_w.htm",
+      "sourceVault": "https://thevaultreport.com/oil/cushing",
+      "riskScore": 32,
+      "cushingMbbl": 22.508,
+      "weeklyChangeMbbl": 0.08,
+      "weeklyChangePct": 0.36,
+      "fiveYearAvgMbbl": 27.8,
+      "vsFiveYearPct": -19.2,
+      "vsFiveYearMbbl": -5.3,
+      "workingCapacityMbbl": 76,
+      "capacityPct": 30,
+      "percentile22yr": 21,
+      "percentileSince2015": 7,
+      "tankBottomMbbl": 20,
+      "coverageRatio": 1.2,
+      "paperPhysicalRatio": 85,
+      "openInterestContracts": 1921085,
+      "impliedPaperMbbl": 1921.1,
+      "daysCover": 24.3,
+      "daysCoverBasis": "US commercial excl SPR / refinery inputs (EIA national method)",
+      "usCommercialMbbl": 424.5,
+      "usCommercialWowMbbl": -4.5,
+      "sprMbbl": 286.6,
+      "sprWowMbbl": -3.1,
+      "refineryInputsMmbblD": 17.5,
+      "flow": {
+        "cushingWowMbbl": 0.08,
+        "usCommercialMbbl": 424.5,
+        "usCommercialWowMbbl": -4.5,
+        "reportWeek": "2026-08-28",
+        "vsFiveYearPct": -19.2
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "storage": {
+          "text": "BELOW 5-YR",
+          "variant": "warning"
+        },
+        "coverage": {
+          "text": "85:1 PAPER",
+          "variant": "ok"
+        },
+        "cover": {
+          "text": "24D COVER",
+          "variant": "ok"
+        },
+        "flow": {
+          "text": "ABOVE TANK BOTTOMS",
+          "variant": "warning"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "warning",
+          "label": "BELOW 5-YR AVG",
+          "text": "Cushing 22.508 Mbbl — −19.2% vs same-week 5-yr avg (27.8 Mbbl); 21st %ile of 22-yr record, 7th %ile since 2015"
+        },
+        {
+          "severity": "info",
+          "label": "ABOVE TANK BOTTOMS",
+          "text": "Recrossed ~20 Mbbl tank-bottom floor week ending 2026-07-31 after Jul 24 low of 18.599 Mbbl; stocks rebuilding"
+        },
+        {
+          "severity": "info",
+          "label": "~30% CAPACITY",
+          "text": "Cushing ~30% of ~76 Mbbl working capacity — lean hub, not empty tanks"
+        },
+        {
+          "severity": "info",
+          "label": "PAPER COVERAGE",
+          "text": "NYMEX CL WTI-Physical OI 1,921,085 contracts (CFTC 067651, 2026-09-01) → ~1,921 Mbbl paper vs 22.5 Mbbl Cushing (~1.2%, 85:1)"
+        },
+        {
+          "severity": "info",
+          "label": "NATIONAL COVER",
+          "text": "US commercial 424.5 Mbbl / 17.5 MMbbl/d refinery inputs ≈ 24.3 days — national EIA method, not Cushing-only"
+        },
+        {
+          "severity": "info",
+          "label": "SPR FOOTNOTE",
+          "text": "SPR 286.6 Mbbl (−3.1 WoW, 1st %ile of 44-yr record) — not deliverable against CL at Cushing"
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 32/100 — WATCH / BELOW 5-YR / ABOVE TANK BOTTOMS; lean vs history but rebuilding above floor"
+        }
+      ],
+      "storageHistory": [
+        {
+          "month": "07/24",
+          "value": 18.599
+        },
+        {
+          "month": "07/31",
+          "value": 20.955
+        },
+        {
+          "month": "08/07",
+          "value": 22.566
+        },
+        {
+          "month": "08/14",
+          "value": 21.252
+        },
+        {
+          "month": "08/21",
+          "value": 22.428
+        },
+        {
+          "month": "08/28",
+          "value": 22.508
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "09/01",
+          "value": 1.2
+        }
+      ],
+      "storageAvg": 27.8,
+      "storageLowBand": 20,
+      "coverageAvg": 1.2,
+      "coverageTight": 2,
+      "storageYDomain": [
+        17,
+        25
+      ],
+      "coverageYDomain": [
+        0,
+        5
+      ]
+    },
+    "brent": {
+      "lastUpdate": "2026-09-01 (Vault Report / CFTC COT)",
+      "sourceSpread": "https://thevaultreport.com/oil/wti-brent-spread",
+      "sourceOi": "https://www.tradingster.com/cot/legacy-futures/06765T",
+      "sourceIce": "https://www.ice.com/products/219/Brent-Crude-Futures",
+      "riskScore": 24,
+      "wtiUsd": 91.48,
+      "brentUsd": 96.02,
+      "spreadUsd": -4.54,
+      "spreadRangeLow": -12.24,
+      "spreadRangeHigh": 2.45,
+      "spreadRangeLabel": "Jun 2–Sep 1 observed range on Vault Report",
+      "openInterestContracts": 253258,
+      "openInterestWow": -16886,
+      "impliedPaperMbbl": 253.3,
+      "cargoSizeKb": 700,
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "spread": {
+          "text": "BRENT PREMIUM",
+          "variant": "ok"
+        },
+        "paper": {
+          "text": "NOT ICE BRENT",
+          "variant": "neutral"
+        },
+        "physical": {
+          "text": "CASH-SETTLED",
+          "variant": "neutral"
+        },
+        "delivery": {
+          "text": "NO WAREHOUSE",
+          "variant": "neutral"
+        }
+      },
+      "delivery": {
+        "mechanism": "EFP delivery or cash settle vs ICE Brent Index",
+        "indexBasis": "BFOET cargoes — full cargo size 700,000 bbl (Index methodology)",
+        "tightnessProxy": "WTI–Brent spread — no public warehouse series"
+      },
+      "alerts": [
+        {
+          "severity": "info",
+          "label": "WTI–BRENT SPREAD",
+          "text": "Spread −$4.54/bbl (WTI $91.48 / Brent $96.02, 2026-09-01) — typical WTI discount; Jun 2–Sep 1 range −$12.24 to +$2.45"
+        },
+        {
+          "severity": "info",
+          "label": "NO WAREHOUSE SERIES",
+          "text": "ICE Brent is EFP + cash-settle vs the ICE Brent Index — no Cushing-style tank series. Do not clone tank stocks."
+        },
+        {
+          "severity": "info",
+          "label": "PAPER (NYMEX LD)",
+          "text": "NYMEX Brent Last Day OI 253,258 contracts (CFTC 06765T, 2026-09-01, −16,886 WoW) — not ICE Brent futures"
+        },
+        {
+          "severity": "info",
+          "label": "PHYSICAL MECHANISM",
+          "text": "EFP or cash settle vs ICE Brent Index (700 kb cargo). No days-cover KPI — no tank farm."
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 24/100 — WATCH / CASH-SETTLED / NO WAREHOUSE; −$4.54 is mid-range, not a squeeze flag"
+        }
+      ],
+      "spreadHistory": [
+        {
+          "month": "09/01",
+          "value": -4.54
+        }
+      ],
+      "oiHistory": [
+        {
+          "month": "09/01",
+          "value": 253.3
+        }
+      ],
+      "spreadYDomain": [
+        -14,
+        4
+      ],
+      "oiYDomain": [
+        200,
+        280
+      ],
+      "spreadZero": 0,
+      "oiCurrent": 253.3
+    },
+    "arabica": {
+      "lastUpdate": "2026-09-08 (ICE certified stocks via Vietnam.vn)",
+      "sourceCerts": "https://www.vietnam.vn/en/gia-ca-phe-hom-nay-9-9-robusta-hoi-phuc-arabica-thap-nhat-2-thang",
+      "sourceOi": "https://www.cot-trader.com/commodity-intelligence-hub",
+      "sourceIce": "https://www.ice.com/products/15/Coffee-C-Futures/specs",
+      "riskScore": 38,
+      "certifiedBags": 218838,
+      "certifiedLowLabel": "27-year low",
+      "openInterestContracts": 155275,
+      "contractBags": 283.5,
+      "impliedPaperBags": 44020462.5,
+      "coverageRatio": 0.5,
+      "paperPhysicalRatio": 201,
+      "daysCover": "N/A",
+      "daysCoverBasis": "No cited divisor — do not divide certified bags by world grind",
+      "contractSizeLb": 37500,
+      "delivery": {
+        "brazilExportsT": 206618,
+        "brazilExportsYoyPct": 44.6,
+        "exportNote": "Brazil Aug exports — contrast, not a tightness KPI",
+        "rabobankSurplusBags": 8900000,
+        "rabobankNote": "Rabobank 2026/27 surplus ~8.9M bags — empty ICE sheds ≠ empty world crop"
+      },
+      "footnotes": {
+        "pendingGrading": "I&M Smith ~3,205 bags pending around 2 Sep — do not subtract from 218,838",
+        "geography": "I&M Smith ~74% Europe / 26% US around 2 Sep on 223,762 bags — do not apply to 218,838",
+        "oiVintage": "CFTC OI 2026-09-01 vs certs 2026-09-08 — footnote, no interpolated path",
+        "robusta": "Robusta ICE certs ~5,004 lots (~9-month high) — different contract; footnote only"
+      },
+      "chips": {
+        "status": {
+          "text": "WATCH",
+          "variant": "neutral"
+        },
+        "certs": {
+          "text": "CERTS THIN",
+          "variant": "warning"
+        },
+        "coverage": {
+          "text": "201:1 PAPER",
+          "variant": "ok"
+        },
+        "physical": {
+          "text": "N/A COVER",
+          "variant": "neutral"
+        }
+      },
+      "alerts": [
+        {
+          "severity": "warning",
+          "label": "CERTS DRAIN",
+          "text": "ICE certified arabica 224,011 (28 Aug) → 223,911 (1 Sep) → 218,838 (8 Sep) — lowest in 27 years"
+        },
+        {
+          "severity": "info",
+          "label": "BACKWARDATION",
+          "text": "Sep 318.45 ¢/lb vs Dec 291.30 ¢/lb — front 27.15 ¢ / 8.53% over next (Vietnam.vn 9 Sep)"
+        },
+        {
+          "severity": "info",
+          "label": "WORLD CROP CONTRAST",
+          "text": "Rabobank 2026/27 surplus ~8.9M bags — very abundant crop tape coexists with thin ICE sheds"
+        },
+        {
+          "severity": "info",
+          "label": "BRAZIL EXPORTS",
+          "text": "Brazil Aug exports 206,618 t (+44.6% y/y) — contrast footnote, not deliverable tightness"
+        },
+        {
+          "severity": "info",
+          "label": "NO SQUEEZE SETUP",
+          "text": "Risk Score 38/100 — WATCH / CERTS THIN / BACKWARDATION; surplus crop tape below squeeze call"
+        }
+      ],
+      "certHistory": [
+        {
+          "month": "08/28",
+          "value": 224011
+        },
+        {
+          "month": "09/01",
+          "value": 223911
+        },
+        {
+          "month": "09/08",
+          "value": 218838
+        }
+      ],
+      "coverageHistory": [
+        {
+          "month": "09/08",
+          "value": 0.5
+        }
+      ],
+      "certAvg": 222000,
+      "certLowBand": 220000,
+      "coverageAvg": 0.5,
+      "coverageTight": 1,
+      "certYDomain": [
+        215000,
+        230000
+      ],
+      "coverageYDomain": [
+        0,
+        2
+      ]
+    }
+  },
+  "series": {
+    "spreadDaily": [
+      {
+        "month": "06/02",
+        "value": -1.02
+      },
+      {
+        "month": "06/03",
+        "value": -1.93
+      },
+      {
+        "month": "06/04",
+        "value": -2.15
+      },
+      {
+        "month": "06/05",
+        "value": -2.97
+      },
+      {
+        "month": "06/08",
+        "value": -2.46
+      },
+      {
+        "month": "06/09",
+        "value": -2.25
+      },
+      {
+        "month": "06/10",
+        "value": -2.05
+      },
+      {
+        "month": "06/11",
+        "value": -1.26
+      },
+      {
+        "month": "06/12",
+        "value": -0.02
+      },
+      {
+        "month": "06/15",
+        "value": 0.29
+      },
+      {
+        "month": "06/16",
+        "value": -0.7
+      },
+      {
+        "month": "06/17",
+        "value": 0.32
+      },
+      {
+        "month": "06/18",
+        "value": 1
+      },
+      {
+        "month": "06/22",
+        "value": 2.45
+      },
+      {
+        "month": "06/23",
+        "value": -1.07
+      },
+      {
+        "month": "06/24",
+        "value": -0.67
+      },
+      {
+        "month": "06/25",
+        "value": -1.07
+      },
+      {
+        "month": "06/26",
+        "value": 0.14
+      },
+      {
+        "month": "06/29",
+        "value": 0.28
+      },
+      {
+        "month": "06/30",
+        "value": 0.1
+      },
+      {
+        "month": "07/01",
+        "value": 0.5
+      },
+      {
+        "month": "07/02",
+        "value": 1.2
+      },
+      {
+        "month": "07/06",
+        "value": 0.04
+      },
+      {
+        "month": "07/07",
+        "value": -0.25
+      },
+      {
+        "month": "07/08",
+        "value": -1.94
+      },
+      {
+        "month": "07/09",
+        "value": -1.31
+      },
+      {
+        "month": "07/10",
+        "value": -1.89
+      },
+      {
+        "month": "07/13",
+        "value": -2.42
+      },
+      {
+        "month": "07/14",
+        "value": -3.25
+      },
+      {
+        "month": "07/15",
+        "value": -2.35
+      },
+      {
+        "month": "07/16",
+        "value": -1.2
+      },
+      {
+        "month": "07/17",
+        "value": -1.58
+      },
+      {
+        "month": "07/20",
+        "value": -2.61
+      },
+      {
+        "month": "07/21",
+        "value": -7.81
+      },
+      {
+        "month": "07/22",
+        "value": -6.46
+      },
+      {
+        "month": "07/23",
+        "value": -12.24
+      },
+      {
+        "month": "07/24",
+        "value": -8.57
+      },
+      {
+        "month": "07/27",
+        "value": -7.57
+      },
+      {
+        "month": "07/28",
+        "value": -4.6
+      },
+      {
+        "month": "07/29",
+        "value": -5.87
+      },
+      {
+        "month": "07/30",
+        "value": -6.76
+      },
+      {
+        "month": "07/31",
+        "value": -10.79
+      },
+      {
+        "month": "08/03",
+        "value": -6.94
+      },
+      {
+        "month": "08/04",
+        "value": -9.14
+      },
+      {
+        "month": "08/05",
+        "value": -9.87
+      },
+      {
+        "month": "08/06",
+        "value": -10.77
+      },
+      {
+        "month": "08/07",
+        "value": -7.85
+      },
+      {
+        "month": "08/10",
+        "value": -8.98
+      },
+      {
+        "month": "08/11",
+        "value": -8.49
+      },
+      {
+        "month": "08/12",
+        "value": -7.55
+      },
+      {
+        "month": "08/13",
+        "value": -9.26
+      },
+      {
+        "month": "08/14",
+        "value": -8.03
+      },
+      {
+        "month": "08/17",
+        "value": -6.39
+      },
+      {
+        "month": "08/18",
+        "value": -8.81
+      },
+      {
+        "month": "08/19",
+        "value": -5.09
+      },
+      {
+        "month": "08/20",
+        "value": -4.25
+      },
+      {
+        "month": "08/21",
+        "value": -9.71
+      },
+      {
+        "month": "08/24",
+        "value": -6.37
+      },
+      {
+        "month": "08/25",
+        "value": -4.34
+      },
+      {
+        "month": "08/26",
+        "value": -4.31
+      },
+      {
+        "month": "08/27",
+        "value": -5.37
+      },
+      {
+        "month": "08/28",
+        "value": -5.18
+      },
+      {
+        "month": "09/01",
+        "value": -4.54
+      }
+    ],
+    "spreadMonthly": [
+      {
+        "month": "09/24",
+        "value": -3.78
+      },
+      {
+        "month": "10/24",
+        "value": -3.64
+      },
+      {
+        "month": "11/24",
+        "value": -4.4
+      },
+      {
+        "month": "12/24",
+        "value": -3.74
+      },
+      {
+        "month": "01/25",
+        "value": -3.53
+      },
+      {
+        "month": "02/25",
+        "value": -3.91
+      },
+      {
+        "month": "03/25",
+        "value": -4.49
+      },
+      {
+        "month": "04/25",
+        "value": -4.59
+      },
+      {
+        "month": "05/25",
+        "value": -2.28
+      },
+      {
+        "month": "06/25",
+        "value": -3.27
+      },
+      {
+        "month": "07/25",
+        "value": -2.65
+      },
+      {
+        "month": "08/25",
+        "value": -3.01
+      },
+      {
+        "month": "09/25",
+        "value": -4.03
+      },
+      {
+        "month": "10/25",
+        "value": -3.65
+      },
+      {
+        "month": "11/25",
+        "value": -3.74
+      },
+      {
+        "month": "12/25",
+        "value": -4.57
+      },
+      {
+        "month": "01/26",
+        "value": -6.56
+      },
+      {
+        "month": "02/26",
+        "value": -6.38
+      },
+      {
+        "month": "03/26",
+        "value": -11.75
+      },
+      {
+        "month": "04/26",
+        "value": -16.97
+      },
+      {
+        "month": "05/26",
+        "value": -5.01
+      },
+      {
+        "month": "06/26",
+        "value": -0.59
+      },
+      {
+        "month": "07/26",
+        "value": -3.3
+      },
+      {
+        "month": "08/26",
+        "value": -7.18
+      }
+    ],
+    "copperGoldMonthly": [
+      {
+        "month": "09/24",
+        "value": 3.6
+      },
+      {
+        "month": "10/24",
+        "value": 3.55
+      },
+      {
+        "month": "11/24",
+        "value": 3.42
+      },
+      {
+        "month": "12/24",
+        "value": 3.37
+      },
+      {
+        "month": "01/25",
+        "value": 3.32
+      },
+      {
+        "month": "02/25",
+        "value": 3.22
+      },
+      {
+        "month": "03/25",
+        "value": 3.26
+      },
+      {
+        "month": "04/25",
+        "value": 2.85
+      },
+      {
+        "month": "05/25",
+        "value": 2.9
+      },
+      {
+        "month": "06/25",
+        "value": 2.93
+      },
+      {
+        "month": "07/25",
+        "value": 2.92
+      },
+      {
+        "month": "08/25",
+        "value": 2.87
+      },
+      {
+        "month": "09/25",
+        "value": 2.73
+      },
+      {
+        "month": "10/25",
+        "value": 2.65
+      },
+      {
+        "month": "11/25",
+        "value": 2.65
+      },
+      {
+        "month": "12/25",
+        "value": 2.73
+      },
+      {
+        "month": "01/26",
+        "value": 2.75
+      },
+      {
+        "month": "02/26",
+        "value": 2.58
+      },
+      {
+        "month": "03/26",
+        "value": 2.58
+      },
+      {
+        "month": "04/26",
+        "value": 2.73
+      },
+      {
+        "month": "05/26",
+        "value": 2.94
+      },
+      {
+        "month": "06/26",
+        "value": 3.2
+      },
+      {
+        "month": "07/26",
+        "value": 3.32
+      },
+      {
+        "month": "08/26",
+        "value": 3.24
+      }
+    ],
+    "goldSilverMonthly": [
+      {
+        "month": "09/24",
+        "value": 85.61
+      },
+      {
+        "month": "10/24",
+        "value": 82.96
+      },
+      {
+        "month": "11/24",
+        "value": 85.19
+      },
+      {
+        "month": "12/24",
+        "value": 86.95
+      },
+      {
+        "month": "01/25",
+        "value": 89.35
+      },
+      {
+        "month": "02/25",
+        "value": 89.93
+      },
+      {
+        "month": "03/25",
+        "value": 89.99
+      },
+      {
+        "month": "04/25",
+        "value": 99.85
+      },
+      {
+        "month": "05/25",
+        "value": 100.53
+      },
+      {
+        "month": "06/25",
+        "value": 93.25
+      },
+      {
+        "month": "07/25",
+        "value": 88.71
+      },
+      {
+        "month": "08/25",
+        "value": 88.76
+      },
+      {
+        "month": "09/25",
+        "value": 86.19
+      },
+      {
+        "month": "10/25",
+        "value": 81.99
+      },
+      {
+        "month": "11/25",
+        "value": 80.53
+      },
+      {
+        "month": "12/25",
+        "value": 66.64
+      },
+      {
+        "month": "01/26",
+        "value": 51.74
+      },
+      {
+        "month": "02/26",
+        "value": 60.75
+      },
+      {
+        "month": "03/26",
+        "value": 61.97
+      },
+      {
+        "month": "04/26",
+        "value": 62.67
+      },
+      {
+        "month": "05/26",
+        "value": 59.22
+      },
+      {
+        "month": "06/26",
+        "value": 63.5
+      },
+      {
+        "month": "07/26",
+        "value": 69.54
+      },
+      {
+        "month": "08/26",
+        "value": 67.81
+      }
+    ]
+  }
+}

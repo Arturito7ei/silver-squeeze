@@ -1,11 +1,14 @@
 import { LineChartCard } from '../components/DashboardUi'
-import { goldSilverMonthly, goldSilverYDomain } from './goldSilverRatio'
+import { useLatestSeriesContext } from '../data/useLatestData'
+import { goldSilverMonthly as seedGoldSilver, goldSilverYDomain } from './goldSilverRatio'
 
 export function GoldSilverRatioCard() {
+  const series = useLatestSeriesContext()
+  const data = series.goldSilverMonthly?.length ? series.goldSilverMonthly : seedGoldSilver
   return (
     <LineChartCard
       title="Gold / silver ratio"
-      data={goldSilverMonthly}
+      data={data}
       yDomain={goldSilverYDomain}
       yUnit=""
       referenceLines={[]}
