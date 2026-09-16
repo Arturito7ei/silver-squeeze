@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Pull EIA + FRED and update data log
+      - name: Pull Vault Report metals + EIA + FRED and update data log
         run: node scripts/ingest-feeds.mjs
 
       - name: Commit public/data only
@@ -34,6 +34,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No data changes"
           else
-            git commit -m "chore(data): ingest EIA natgas + FRED oil spreads"
+            git commit -m "chore(data): ingest Vault Report metals + EIA/FRED"
             git push
           fi
