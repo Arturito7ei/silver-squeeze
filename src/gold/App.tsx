@@ -174,7 +174,7 @@ export default function GoldApp() {
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX warehouse
+          Public snapshot, not a live CME feed. Figures as of {meta?.asOf ?? '—'} from The Vault Report (CME COMEX warehouse
           reports). Coverage chart shows the current 3:1 / 33% print only — no interpolated history. Gold/silver ratio
           from IMF monthly averages (PGOLD ÷ PSILVER, 2024-09→2026-08); Vault spot {goldSilverSpotFootnote} is a
           footnote only — not mixed onto the IMF line. Not investment advice.{' '}

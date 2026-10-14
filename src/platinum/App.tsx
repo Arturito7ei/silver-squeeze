@@ -175,7 +175,7 @@ export default function PlatinumApp() {
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX/NYMEX
+          Public snapshot, not a live CME feed. Figures as of {meta?.asOf ?? '—'} from The Vault Report (CME COMEX/NYMEX
           warehouse reports). Registered chart = two cited points only (Aug 20 → Sep 4) — no interpolation. Coverage
           chart shows the current 18:1 / 5.6% print only. Vault spot gold/platinum {d.goldPlatinumSpotFootnote} — footnote
           only, no IMF history chart this release. Not investment advice.{' '}

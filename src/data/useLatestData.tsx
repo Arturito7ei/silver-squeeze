@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from 'react'
 import type { LatestDataFile, LatestMeta, LatestSeries, TabKey } from './latestSchema'
+import { isPulledStale } from './latestSchema'
 
 export type LatestDataState<T> = {
   data: T
@@ -47,7 +48,7 @@ export function useLatestTab<T extends Record<string, unknown>>(tab: TabKey, see
         pulledAt: latest.pulledAt,
         asOf: latest.asOf,
         sources: latest.sources,
-        stale: latest.stale,
+        stale: isPulledStale(latest.pulledAt),
       })
       setData(mergeTab(seed, latest.tabs[tab] as Record<string, unknown> | undefined))
       setSeries(latest.series ?? {})

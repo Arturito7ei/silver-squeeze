@@ -175,7 +175,7 @@ export default function CopperApp() {
         </section>
 
         <footer className="disclaimer">
-          Public snapshot, not a live CME feed. Figures as of 2026-09-04 from The Vault Report (CME COMEX warehouse
+          Public snapshot, not a live CME feed. Figures as of {meta?.asOf ?? '—'} from The Vault Report (CME COMEX warehouse
           reports). Units: short tons (st). HG = 12.5 st/contract. Coverage chart shows the current 7:1 / 14% print
           only — no interpolated history. Copper priced in gold from IMF monthly averages (PCOPP ÷ PGOLD,
           2024-09→2026-08). Not investment advice.{' '}
