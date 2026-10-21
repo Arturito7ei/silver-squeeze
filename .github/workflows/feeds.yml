@@ -50,4 +50,5 @@ jobs:
         if: steps.commit.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run github-pages.yml --ref "${{ github.ref_name }}"
+        # File is pages.yml (workflow name "github-pages"). `gh workflow run github-pages.yml` 404s.
+        run: gh workflow run pages.yml --ref "${{ github.ref_name }}"
