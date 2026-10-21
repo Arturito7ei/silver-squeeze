@@ -26,3 +26,10 @@ npm run dev
 npm run build
 npm run preview
 ```
+
+## CI / live Pages
+
+- **`market-feeds`** (`.github/workflows/feeds.yml`) — weekday cron `16:00 UTC` Mon–Fri (+ `workflow_dispatch`). Ingests Vault/EIA/FRED into `public/data/**` and commits when data changes.
+- **`github-pages`** (`.github/workflows/pages.yml`) — builds and deploys on human `push` to `main`, or on `workflow_dispatch`.
+
+**Cascade:** Actions bot pushes with `GITHUB_TOKEN` do **not** fire other workflows' `on: push` triggers (GitHub recursion guard). After a successful `public/data/**` commit, `market-feeds` therefore runs `gh workflow run github-pages.yml` so live Pages refresh without a manual dispatch (issue #14).
