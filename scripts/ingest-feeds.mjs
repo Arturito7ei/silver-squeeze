@@ -59,19 +59,50 @@ function parseLdJsonDataset(html) {
 
 function parseMetricCards(html) {
   const metrics = {}
-  const re =
+  const legacyRe =
     /<div class="metric-label text-micro">([^<]+)<\/div>\s*<div class="metric-value[^>]*>([^<]+)<\/div>/g
-  for (const m of html.matchAll(re)) {
+  for (const m of html.matchAll(legacyRe)) {
     metrics[decodeHtml(m[1])] = decodeHtml(m[2])
   }
+  if (metrics.Registered) return metrics
+
+  // Vault Report vr-d-answer layout (Oct 2026+)
+  const answerNum = html.match(/class="answer-num">([^<]+)<\/span>/)
+  if (answerNum) metrics.Registered = decodeHtml(answerNum[1])
+
+  const h1Block = html.match(/class="vr-d-line[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? ''
+  const changeMatch = h1Block.match(/,\s*(up|down)\s+([\d.]+)\s*%\s+in\s+the\s+past\s+30\s+days/i)
+  if (changeMatch) {
+    const sign = changeMatch[1].toLowerCase() === 'down' ? '-' : '+'
+    metrics['30-day change'] = `${sign}${changeMatch[2]}%`
+  }
+
+  const sub = html.match(
+    /class="vr-d-sub">[\s\S]*?the other\s+([\d.]+[KMG]?\s*(?:oz|st))\s+is\s+eligible/i,
+  )
+  if (sub) metrics.Eligible = decodeHtml(sub[1])
+
+  const totalFaq = html.match(/([\d.]+[KMG]?\s*(?:oz|st))\s+held\s+in\s+COMEX-approved\s+vaults/i)
+  if (totalFaq) metrics['Total stocks'] = decodeHtml(totalFaq[1])
+
   return metrics
 }
 
 function parseEvItems(html) {
   const items = {}
-  const re =
+  const modernRe =
+    /<div class="vr-d-ev-label">(?:<span[^>]*><\/span>)?([^<]+)<\/div>\s*<div class="vr-d-ev-fig">([^<]+)<\/div>(?:\s*<div class="vr-d-ev-delta">([^<]*)<\/div>)?/g
+  for (const m of html.matchAll(modernRe)) {
+    items[decodeHtml(m[1]).trim()] = {
+      fig: decodeHtml(m[2]),
+      delta: m[3] ? decodeHtml(m[3]) : '',
+    }
+  }
+  if (Object.keys(items).length > 0) return items
+
+  const legacyRe =
     /class="vr-d-ev-label"[^>]*>.*?<span[^>]*>([^<]+)<\/span>[\s\S]*?class="vr-d-ev-fig">([^<]+)<\/div>(?:\s*<div class="vr-d-ev-delta">([^<]*)<\/div>)?/g
-  for (const m of html.matchAll(re)) {
+  for (const m of html.matchAll(legacyRe)) {
     items[decodeHtml(m[1])] = {
       fig: decodeHtml(m[2]),
       delta: m[3] ? decodeHtml(m[3]) : '',
@@ -149,6 +180,23 @@ function vaultLastUpdate(asOf) {
   return `${asOf} (COMEX warehouse report via The Vault Report)`
 }
 
+const STALE_MS = 48 * 60 * 60 * 1000
+const MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+function isPulledStale(pulledAt) {
+  return Date.now() - new Date(pulledAt).getTime() > STALE_MS
+}
+
+function bumpRegisteredHistory(history, value, asOf) {
+  if (!history?.length || value === null || !asOf) return history
+  const label = MONTH_SHORT[new Date(`${asOf}T12:00:00`).getMonth()]
+  const next = [...history]
+  const idx = next.findIndex((p) => p.month === label)
+  if (idx >= 0) next[idx] = { month: label, value }
+  else next.push({ month: label, value })
+  return next.slice(-4)
+}
+
 function patchSilverTab(tab, vault) {
   const { metrics, ev, asOf, url, reqTotalPct } = vault
   const registeredMoz = parseDisplayQty(metrics.Registered ?? '')
@@ -171,13 +219,14 @@ function patchSilverTab(tab, vault) {
   if (registeredMoz !== null) {
     next.registeredMoz = registeredMoz
     next.asOfExactOz = Math.round(registeredMoz * 1_000_000)
+    next.registeredHistory = bumpRegisteredHistory(tab.registeredHistory, registeredMoz, asOf)
   }
   if (reqTotalPct !== null) next.reqTotalPct = reqTotalPct
   else if (registeredMoz !== null && totalMoz !== null && totalMoz > 0) {
     next.reqTotalPct = Math.round((registeredMoz / totalMoz) * 1000) / 10
   }
   if (delta30 !== null) next.registeredDelta30dPct = delta30
-  if (range30?.low !== null && range30?.high !== null) {
+  if (range30 && range30.low !== null && range30.high !== null) {
     next.registeredRange30d = { low: range30.low, high: range30.high }
   }
   if (daysCover !== null) next.daysCover = daysCover
@@ -218,7 +267,10 @@ function patchGoldTab(tab, vault) {
     lastUpdate: vaultLastUpdate(asOf),
     sourceUrl: url,
   }
-  if (registeredMoz !== null) next.registeredMoz = registeredMoz
+  if (registeredMoz !== null) {
+    next.registeredMoz = registeredMoz
+    next.registeredHistory = bumpRegisteredHistory(tab.registeredHistory, registeredMoz, asOf)
+  }
   if (eligibleMoz !== null) next.eligibleMoz = eligibleMoz
   if (totalMoz !== null) next.totalMoz = totalMoz
   if (reqTotalPct !== null) next.reqTotalPct = reqTotalPct
@@ -227,7 +279,7 @@ function patchGoldTab(tab, vault) {
   }
   if (delta30 !== null) next.registeredDelta30dPct = delta30
   if (delta7 !== null) next.registeredDelta7dPct = delta7
-  if (range30?.low !== null && range30?.high !== null) {
+  if (range30 && range30.low !== null && range30.high !== null) {
     next.registeredRange30d = { low: range30.low, high: range30.high }
   }
   if (daysCover !== null) next.daysCover = daysCover
@@ -267,7 +319,10 @@ function patchCopperTab(tab, vault) {
     lastUpdate: vaultLastUpdate(asOf),
     sourceUrl: url,
   }
-  if (registeredKst !== null) next.registeredKst = registeredKst
+  if (registeredKst !== null) {
+    next.registeredKst = registeredKst
+    next.registeredHistory = bumpRegisteredHistory(tab.registeredHistory, registeredKst, asOf)
+  }
   if (eligibleKst !== null) next.eligibleKst = eligibleKst
   if (totalKst !== null) next.totalKst = totalKst
   if (reqTotalPct !== null) next.reqTotalPct = reqTotalPct
@@ -276,7 +331,7 @@ function patchCopperTab(tab, vault) {
   }
   if (delta30 !== null) next.registeredDelta30dPct = delta30
   if (delta7 !== null) next.registeredDelta7dPct = delta7
-  if (range30?.low !== null && range30?.high !== null) {
+  if (range30 && range30.low !== null && range30.high !== null) {
     next.registeredRange30d = { low: range30.low, high: range30.high }
   }
   if (daysCover !== null) next.daysCover = daysCover
@@ -316,7 +371,10 @@ function patchPlatinumTab(tab, vault) {
     lastUpdate: vaultLastUpdate(asOf),
     sourceUrl: url,
   }
-  if (registeredKoz !== null) next.registeredKoz = registeredKoz
+  if (registeredKoz !== null) {
+    next.registeredKoz = registeredKoz
+    next.registeredHistory = bumpRegisteredHistory(tab.registeredHistory, registeredKoz, asOf)
+  }
   if (eligibleKoz !== null) next.eligibleKoz = eligibleKoz
   if (totalKoz !== null) next.totalKoz = totalKoz
   if (reqTotalPct !== null) next.reqTotalPct = reqTotalPct
@@ -325,7 +383,7 @@ function patchPlatinumTab(tab, vault) {
   }
   if (delta30 !== null) next.registeredDelta30dPct = delta30
   if (delta7 !== null) next.registeredDelta7dPct = delta7
-  if (range30?.low !== null && range30?.high !== null) {
+  if (range30 && range30.low !== null && range30.high !== null) {
     next.registeredRange30d = { low: range30.low, high: range30.high }
   }
   if (daysCover !== null) next.daysCover = daysCover
@@ -545,7 +603,6 @@ async function main() {
     lastWti && lastBrent ? Math.round((lastWti.value - lastBrent.value) * 100) / 100 : null
 
   latest.pulledAt = pulledAt
-  latest.stale = false
 
   const vaultRows = await ingestVaultMetals(latest)
 
@@ -567,6 +624,8 @@ async function main() {
       lastUpdate: `${lastWti.date} (FRED DCOILWTICO / DCOILBRENTEU)`,
     }
   }
+
+  latest.stale = isPulledStale(latest.pulledAt)
 
   writeFileSync(latestPath, `${JSON.stringify(latest, null, 2)}\n`)
 

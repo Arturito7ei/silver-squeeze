@@ -38,3 +38,11 @@ export type LatestMeta = {
   sources: DataSource[]
   stale?: boolean
 }
+
+/** Data older than 48h is stale — matches scripts/ingest-feeds.mjs */
+export const STALE_MS = 48 * 60 * 60 * 1000
+
+export function isPulledStale(pulledAt: string, now = Date.now()): boolean {
+  const age = now - new Date(pulledAt).getTime()
+  return age > STALE_MS
+}
