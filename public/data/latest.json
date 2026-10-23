@@ -1,26 +1,26 @@
 {
-  "pulledAt": "2026-10-22T19:34:29.610Z",
-  "asOf": "2026-10-20",
+  "pulledAt": "2026-10-23T19:35:04.417Z",
+  "asOf": "2026-10-21",
   "sources": [
     {
       "id": "vault-silver",
       "url": "https://thevaultreport.com/metals/silver",
-      "asOf": "2026-10-20"
+      "asOf": "2026-10-21"
     },
     {
       "id": "vault-gold",
       "url": "https://thevaultreport.com/metals/gold",
-      "asOf": "2026-10-20"
+      "asOf": "2026-10-21"
     },
     {
       "id": "vault-copper",
       "url": "https://thevaultreport.com/metals/copper",
-      "asOf": "2026-10-20"
+      "asOf": "2026-10-21"
     },
     {
       "id": "vault-platinum",
       "url": "https://thevaultreport.com/metals/platinum",
-      "asOf": "2026-10-20"
+      "asOf": "2026-10-21"
     },
     {
       "id": "eia-wti",
@@ -50,25 +50,25 @@
   ],
   "tabs": {
     "silver": {
-      "lastUpdate": "2026-10-20 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-21 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/silver",
-      "asOfExactOz": 103330000,
+      "asOfExactOz": 100700000,
       "riskScore": 22,
-      "registeredMoz": 103.33,
+      "registeredMoz": 100.7,
       "registeredDelta": -0.32,
-      "reqTotalPct": 30.6,
+      "reqTotalPct": 29.8,
       "coverageRatio": 20,
       "openInterestMoz": 497,
       "percentileLabel": "8-mo percentile",
       "percentile2y": 77,
-      "daysCover": 80,
+      "daysCover": 78,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal)",
       "delivery": {
-        "mtdMoz": 19.99,
+        "mtdMoz": 20.14,
         "dailyNotices": 13,
         "deliveryMonth": "2026-09",
-        "intensityPct": 19.3,
-        "stops30dContracts": 3998
+        "intensityPct": 20,
+        "stops30dContracts": 4028
       },
       "chips": {
         "status": {
@@ -134,7 +134,7 @@
         },
         {
           "month": "Oct",
-          "value": 103.33
+          "value": 100.7
         }
       ],
       "coverageHistory": [
@@ -167,7 +167,7 @@
         0,
         30
       ],
-      "registeredDelta30dPct": 6.2,
+      "registeredDelta30dPct": 2.9,
       "registeredRange30d": {
         "low": 95.49,
         "high": 102.29
@@ -175,15 +175,15 @@
       "paperPhysicalRatio": 5
     },
     "gold": {
-      "lastUpdate": "2026-10-20 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-21 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/gold",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 18,
       "registeredMoz": 14.82,
-      "eligibleMoz": 8.59,
-      "totalMoz": 23.4,
-      "reqTotalPct": 63.3,
-      "registeredDelta30dPct": -2.2,
+      "eligibleMoz": 8.53,
+      "totalMoz": 23.34,
+      "reqTotalPct": 63.5,
+      "registeredDelta30dPct": -2.4,
       "registeredRange30d": {
         "low": 15.09,
         "high": 15.19
@@ -195,10 +195,10 @@
       "impliedPaperMoz": 45.3,
       "openInterestContracts": 415196,
       "openInterestMoz": 41.52,
-      "daysCover": 191,
+      "daysCover": 192,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 14105,
+        "stops30dContracts": 13771,
         "stops30dKoz": 764.4,
         "stops30dValueB": 3.4,
         "stops30dPctRegistered": 5.1,
@@ -294,15 +294,15 @@
       ]
     },
     "copper": {
-      "lastUpdate": "2026-10-20 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-21 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/copper",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 16,
-      "registeredKst": 471.6,
-      "eligibleKst": 322.8,
-      "totalKst": 794.5,
-      "reqTotalPct": 59.4,
-      "registeredDelta30dPct": -0.9,
+      "registeredKst": 473.4,
+      "eligibleKst": 324.4,
+      "totalKst": 797.8,
+      "reqTotalPct": 59.3,
+      "registeredDelta30dPct": -0.4,
       "registeredRange30d": {
         "low": 470.3,
         "high": 479
@@ -314,13 +314,13 @@
       "impliedPaperKst": 3344,
       "openInterestContracts": 282640,
       "openInterestKst": 3533,
-      "daysCover": 496,
+      "daysCover": 498,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 17613,
-        "stops30dKst": 220.2,
+        "stops30dContracts": 17603,
+        "stops30dKst": 220,
         "stops30dValueB": 2.6,
-        "stops30dPctRegistered": 46.7,
+        "stops30dPctRegistered": 46.5,
         "sep4Contracts": 40,
         "sep4Kst": 0.5,
         "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
@@ -390,7 +390,7 @@
         },
         {
           "month": "Oct",
-          "value": 471.6
+          "value": 473.4
         }
       ],
       "coverageHistory": [
@@ -413,7 +413,7 @@
       ]
     },
     "platinum": {
-      "lastUpdate": "2026-10-20 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-21 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/platinum",
       "sourceComex": "https://thevaultreport.com/charts/comex/platinum",
       "sourceCot": "https://futuresbench.com/cot/platinum/",
@@ -422,7 +422,7 @@
       "eligibleKoz": 145.9,
       "totalKoz": 252.1,
       "reqTotalPct": 42.1,
-      "registeredDelta30dPct": -41.1,
+      "registeredDelta30dPct": -40.5,
       "registeredDelta7dPct": -1,
       "registeredRange30d": {
         "low": 116.4,
@@ -438,8 +438,8 @@
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "goldPlatinumSpotFootnote": "2.34 oz Au / oz Pt (Vault gold $4,450 / platinum $1,905, COMEX front-month, 2026-09-09)",
       "delivery": {
-        "stops30dContracts": 361,
-        "stops30dKoz": 18.1,
+        "stops30dContracts": 343,
+        "stops30dKoz": 17.2,
         "stops30dValueM": 8.5,
         "sep4Contracts": 7,
         "sep4Oz": 350,
