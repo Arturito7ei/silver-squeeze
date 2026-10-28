@@ -1,26 +1,26 @@
 {
-  "pulledAt": "2026-10-27T20:16:25.057Z",
-  "asOf": "2026-10-23",
+  "pulledAt": "2026-10-28T20:36:45.281Z",
+  "asOf": "2026-10-26",
   "sources": [
     {
       "id": "vault-silver",
       "url": "https://thevaultreport.com/metals/silver",
-      "asOf": "2026-10-23"
+      "asOf": "2026-10-26"
     },
     {
       "id": "vault-gold",
       "url": "https://thevaultreport.com/metals/gold",
-      "asOf": "2026-10-23"
+      "asOf": "2026-10-26"
     },
     {
       "id": "vault-copper",
       "url": "https://thevaultreport.com/metals/copper",
-      "asOf": "2026-10-23"
+      "asOf": "2026-10-26"
     },
     {
       "id": "vault-platinum",
       "url": "https://thevaultreport.com/metals/platinum",
-      "asOf": "2026-10-23"
+      "asOf": "2026-10-26"
     },
     {
       "id": "eia-wti",
@@ -40,35 +40,35 @@
     {
       "id": "fred-wti",
       "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
-      "asOf": "2026-10-20"
+      "asOf": "2026-10-27"
     },
     {
       "id": "fred-brent",
       "url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
-      "asOf": "2026-10-20"
+      "asOf": "2026-10-27"
     }
   ],
   "tabs": {
     "silver": {
-      "lastUpdate": "2026-10-23 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-26 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/silver",
-      "asOfExactOz": 99790000,
+      "asOfExactOz": 99800000,
       "riskScore": 22,
-      "registeredMoz": 99.79,
+      "registeredMoz": 99.8,
       "registeredDelta": -0.32,
       "reqTotalPct": 29.6,
       "coverageRatio": 16.7,
       "openInterestMoz": 497,
       "percentileLabel": "8-mo percentile",
       "percentile2y": 77,
-      "daysCover": 78,
+      "daysCover": 79,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal)",
       "delivery": {
-        "mtdMoz": 18.77,
+        "mtdMoz": 19.55,
         "dailyNotices": 13,
         "deliveryMonth": "2026-09",
-        "intensityPct": 18.8,
-        "stops30dContracts": 3753
+        "intensityPct": 19.6,
+        "stops30dContracts": 3910
       },
       "chips": {
         "status": {
@@ -134,7 +134,7 @@
         },
         {
           "month": "Oct",
-          "value": 99.79
+          "value": 99.8
         }
       ],
       "coverageHistory": [
@@ -167,7 +167,7 @@
         0,
         30
       ],
-      "registeredDelta30dPct": 3.3,
+      "registeredDelta30dPct": 3.7,
       "registeredRange30d": {
         "low": 95.49,
         "high": 102.29
@@ -175,15 +175,15 @@
       "paperPhysicalRatio": 6
     },
     "gold": {
-      "lastUpdate": "2026-10-23 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-26 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/gold",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 18,
-      "registeredMoz": 14.81,
-      "eligibleMoz": 8.4,
-      "totalMoz": 23.21,
-      "reqTotalPct": 63.8,
-      "registeredDelta30dPct": -2.4,
+      "registeredMoz": 14.82,
+      "eligibleMoz": 8.37,
+      "totalMoz": 23.2,
+      "reqTotalPct": 63.9,
+      "registeredDelta30dPct": -2.2,
       "registeredRange30d": {
         "low": 15.09,
         "high": 15.19
@@ -198,7 +198,7 @@
       "daysCover": 192,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 13485,
+        "stops30dContracts": 13696,
         "stops30dKoz": 764.4,
         "stops30dValueB": 3.4,
         "stops30dPctRegistered": 5.1,
@@ -271,7 +271,7 @@
         },
         {
           "month": "Oct",
-          "value": 14.81
+          "value": 14.82
         }
       ],
       "coverageHistory": [
@@ -294,15 +294,15 @@
       ]
     },
     "copper": {
-      "lastUpdate": "2026-10-23 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-26 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/copper",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 16,
-      "registeredKst": 473.1,
-      "eligibleKst": 326.7,
-      "totalKst": 799.8,
+      "registeredKst": 473.6,
+      "eligibleKst": 327.4,
+      "totalKst": 801,
       "reqTotalPct": 59.1,
-      "registeredDelta30dPct": -0.8,
+      "registeredDelta30dPct": -0.4,
       "registeredRange30d": {
         "low": 470.3,
         "high": 479
@@ -317,10 +317,10 @@
       "daysCover": 497,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 16709,
-        "stops30dKst": 208.9,
+        "stops30dContracts": 17029,
+        "stops30dKst": 212.9,
         "stops30dValueB": 2.6,
-        "stops30dPctRegistered": 44.2,
+        "stops30dPctRegistered": 45,
         "sep4Contracts": 40,
         "sep4Kst": 0.5,
         "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
@@ -390,7 +390,7 @@
         },
         {
           "month": "Oct",
-          "value": 473.1
+          "value": 473.6
         }
       ],
       "coverageHistory": [
@@ -413,15 +413,15 @@
       ]
     },
     "platinum": {
-      "lastUpdate": "2026-10-23 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-26 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/platinum",
       "sourceComex": "https://thevaultreport.com/charts/comex/platinum",
       "sourceCot": "https://futuresbench.com/cot/platinum/",
       "riskScore": 32,
-      "registeredKoz": 106.2,
-      "eligibleKoz": 145.9,
+      "registeredKoz": 106.3,
+      "eligibleKoz": 145.8,
       "totalKoz": 252.1,
-      "reqTotalPct": 42.1,
+      "reqTotalPct": 42.2,
       "registeredDelta30dPct": -40.5,
       "registeredDelta7dPct": -1,
       "registeredRange30d": {
@@ -438,8 +438,8 @@
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "goldPlatinumSpotFootnote": "2.34 oz Au / oz Pt (Vault gold $4,450 / platinum $1,905, COMEX front-month, 2026-09-09)",
       "delivery": {
-        "stops30dContracts": 345,
-        "stops30dKoz": 17.3,
+        "stops30dContracts": 349,
+        "stops30dKoz": 17.5,
         "stops30dValueM": 8.5,
         "sep4Contracts": 7,
         "sep4Oz": 350,
@@ -506,7 +506,7 @@
         },
         {
           "month": "Oct",
-          "value": 106.2
+          "value": 106.3
         }
       ],
       "coverageHistory": [
@@ -799,14 +799,14 @@
       ]
     },
     "brent": {
-      "lastUpdate": "2026-10-20 (FRED DCOILWTICO / DCOILBRENTEU)",
+      "lastUpdate": "2026-10-27 (FRED DCOILWTICO / DCOILBRENTEU)",
       "sourceSpread": "https://thevaultreport.com/oil/wti-brent-spread",
       "sourceOi": "https://www.tradingster.com/cot/legacy-futures/06765T",
       "sourceIce": "https://www.ice.com/products/219/Brent-Crude-Futures",
       "riskScore": 24,
-      "wtiUsd": 107.89,
-      "brentUsd": 115.22,
-      "spreadUsd": -7.33,
+      "wtiUsd": 103.37,
+      "brentUsd": 123.1,
+      "spreadUsd": -19.73,
       "spreadRangeLow": -12.24,
       "spreadRangeHigh": 2.45,
       "spreadRangeLabel": "Jun 2–Sep 1 observed range on Vault Report",
@@ -1001,26 +1001,6 @@
   },
   "series": {
     "spreadDaily": [
-      {
-        "month": "04/28",
-        "value": -14.17
-      },
-      {
-        "month": "04/29",
-        "value": -13.69
-      },
-      {
-        "month": "04/30",
-        "value": -15.6
-      },
-      {
-        "month": "05/01",
-        "value": -12.88
-      },
-      {
-        "month": "05/05",
-        "value": -8.85
-      },
       {
         "month": "05/06",
         "value": -4.95
@@ -1480,6 +1460,26 @@
       {
         "month": "10/20",
         "value": -7.33
+      },
+      {
+        "month": "10/21",
+        "value": -13.42
+      },
+      {
+        "month": "10/22",
+        "value": -21.12
+      },
+      {
+        "month": "10/23",
+        "value": -18.58
+      },
+      {
+        "month": "10/26",
+        "value": -22.87
+      },
+      {
+        "month": "10/27",
+        "value": -19.73
       }
     ],
     "spreadMonthly": [
@@ -1577,7 +1577,7 @@
       },
       {
         "month": "10/26",
-        "value": -24.99
+        "value": -23.45
       }
     ],
     "copperGoldMonthly": [
