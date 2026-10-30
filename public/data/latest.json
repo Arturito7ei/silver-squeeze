@@ -1,26 +1,26 @@
 {
-  "pulledAt": "2026-10-29T20:41:53.507Z",
-  "asOf": "2026-10-27",
+  "pulledAt": "2026-10-30T20:12:31.975Z",
+  "asOf": "2026-10-28",
   "sources": [
     {
       "id": "vault-silver",
       "url": "https://thevaultreport.com/metals/silver",
-      "asOf": "2026-10-27"
+      "asOf": "2026-10-28"
     },
     {
       "id": "vault-gold",
       "url": "https://thevaultreport.com/metals/gold",
-      "asOf": "2026-10-27"
+      "asOf": "2026-10-28"
     },
     {
       "id": "vault-copper",
       "url": "https://thevaultreport.com/metals/copper",
-      "asOf": "2026-10-27"
+      "asOf": "2026-10-28"
     },
     {
       "id": "vault-platinum",
       "url": "https://thevaultreport.com/metals/platinum",
-      "asOf": "2026-10-27"
+      "asOf": "2026-10-28"
     },
     {
       "id": "eia-wti",
@@ -50,25 +50,25 @@
   ],
   "tabs": {
     "silver": {
-      "lastUpdate": "2026-10-27 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-28 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/silver",
-      "asOfExactOz": 99800000,
+      "asOfExactOz": 104640000,
       "riskScore": 22,
-      "registeredMoz": 99.8,
+      "registeredMoz": 104.64,
       "registeredDelta": -0.32,
-      "reqTotalPct": 29.7,
-      "coverageRatio": 16.7,
+      "reqTotalPct": 31.2,
+      "coverageRatio": 20,
       "openInterestMoz": 497,
       "percentileLabel": "8-mo percentile",
       "percentile2y": 77,
-      "daysCover": 79,
+      "daysCover": 83,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal)",
       "delivery": {
-        "mtdMoz": 19.45,
+        "mtdMoz": 15.47,
         "dailyNotices": 13,
         "deliveryMonth": "2026-09",
-        "intensityPct": 19.5,
-        "stops30dContracts": 3891
+        "intensityPct": 14.8,
+        "stops30dContracts": 3093
       },
       "chips": {
         "status": {
@@ -134,7 +134,7 @@
         },
         {
           "month": "Oct",
-          "value": 99.8
+          "value": 104.64
         }
       ],
       "coverageHistory": [
@@ -167,15 +167,15 @@
         0,
         30
       ],
-      "registeredDelta30dPct": 3.7,
+      "registeredDelta30dPct": 5.5,
       "registeredRange30d": {
         "low": 95.49,
         "high": 102.29
       },
-      "paperPhysicalRatio": 6
+      "paperPhysicalRatio": 5
     },
     "gold": {
-      "lastUpdate": "2026-10-27 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-28 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/gold",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 18,
@@ -183,7 +183,7 @@
       "eligibleMoz": 8.38,
       "totalMoz": 23.21,
       "reqTotalPct": 63.9,
-      "registeredDelta30dPct": -2.2,
+      "registeredDelta30dPct": -1.8,
       "registeredRange30d": {
         "low": 15.09,
         "high": 15.19
@@ -195,13 +195,13 @@
       "impliedPaperMoz": 45.3,
       "openInterestContracts": 415196,
       "openInterestMoz": 41.52,
-      "daysCover": 194,
+      "daysCover": 195,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 13699,
-        "stops30dKoz": 764.4,
+        "stops30dContracts": 6321,
+        "stops30dKoz": 632.1,
         "stops30dValueB": 3.4,
-        "stops30dPctRegistered": 5.1,
+        "stops30dPctRegistered": 4.3,
         "sep4Contracts": 62,
         "sep4Koz": 6.2,
         "sep4VaultFlow": "+64 oz FILLING (eligible +64, registered 0)",
@@ -294,15 +294,15 @@
       ]
     },
     "copper": {
-      "lastUpdate": "2026-10-27 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-28 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/copper",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 16,
       "registeredKst": 474.4,
-      "eligibleKst": 325.9,
-      "totalKst": 800.3,
-      "reqTotalPct": 59.3,
-      "registeredDelta30dPct": -0.2,
+      "eligibleKst": 327.1,
+      "totalKst": 801.5,
+      "reqTotalPct": 59.2,
+      "registeredDelta30dPct": 0.9,
       "registeredRange30d": {
         "low": 470.3,
         "high": 479
@@ -317,10 +317,10 @@
       "daysCover": 497,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 17369,
-        "stops30dKst": 217.1,
+        "stops30dContracts": 14936,
+        "stops30dKst": 186.7,
         "stops30dValueB": 2.6,
-        "stops30dPctRegistered": 45.8,
+        "stops30dPctRegistered": 39.4,
         "sep4Contracts": 40,
         "sep4Kst": 0.5,
         "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
@@ -413,7 +413,7 @@
       ]
     },
     "platinum": {
-      "lastUpdate": "2026-10-27 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-10-28 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/platinum",
       "sourceComex": "https://thevaultreport.com/charts/comex/platinum",
       "sourceCot": "https://futuresbench.com/cot/platinum/",
@@ -422,7 +422,7 @@
       "eligibleKoz": 145.7,
       "totalKoz": 252.1,
       "reqTotalPct": 42.2,
-      "registeredDelta30dPct": -40.4,
+      "registeredDelta30dPct": -40.7,
       "registeredDelta7dPct": -1,
       "registeredRange30d": {
         "low": 116.4,
@@ -438,8 +438,8 @@
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "goldPlatinumSpotFootnote": "2.34 oz Au / oz Pt (Vault gold $4,450 / platinum $1,905, COMEX front-month, 2026-09-09)",
       "delivery": {
-        "stops30dContracts": 352,
-        "stops30dKoz": 17.6,
+        "stops30dContracts": 266,
+        "stops30dKoz": 13.3,
         "stops30dValueM": 8.5,
         "sep4Contracts": 7,
         "sep4Oz": 350,
