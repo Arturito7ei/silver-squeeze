@@ -1,5 +1,5 @@
 {
-  "pulledAt": "2026-11-17T14:35:44.086Z",
+  "pulledAt": "2026-11-17T14:37:51.489Z",
   "asOf": "2026-11-13",
   "sources": [
     {
@@ -96,27 +96,27 @@
         {
           "severity": "info",
           "label": "REGISTERED ADEQUATE",
-          "text": "COMEX registered silver 99.39 Moz (99,386,946 oz) — above the 50 Moz squeeze threshold from the Figma mock"
+          "text": "COMEX registered silver 99.39 Moz (99,386,946 oz) \u2014 above the 50 Moz squeeze threshold from the Figma mock"
         },
         {
           "severity": "info",
           "label": "COVERAGE",
-          "text": "Paper/physical 5:1 (coverage 20%, implied OI ~497 Moz) — not the 4.84% squeeze print from Feb"
+          "text": "Paper/physical 5:1 (coverage 20%, implied OI ~497 Moz) \u2014 not the 4.84% squeeze print from Feb"
         },
         {
           "severity": "warning",
           "label": "SEPTEMBER DELIVERIES",
-          "text": "25.2 Moz delivered in the first five September sessions (5,032 of 6,757 contracts standing 27 Aug) — 25.4% of registered"
+          "text": "25.2 Moz delivered in the first five September sessions (5,032 of 6,757 contracts standing 27 Aug) \u2014 25.4% of registered"
         },
         {
           "severity": "info",
           "label": "COVER",
-          "text": "77 days withdrawal cover — above the 20-day LOW threshold from the Figma mock"
+          "text": "77 days withdrawal cover \u2014 above the 20-day LOW threshold from the Figma mock"
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 22/100 — 77th percentile of the 8-month registered record; Vault Report: nothing here demands attention today"
+          "text": "Risk Score 22/100 \u2014 77th percentile of the 8-month registered record; Vault Report: nothing here demands attention today"
         }
       ],
       "registeredHistory": [
@@ -233,27 +233,27 @@
         {
           "severity": "info",
           "label": "WITHIN NORMAL RANGE",
-          "text": "Vault Report: registered inventory sits within its normal range — 36th percentile of 8-month record"
+          "text": "Vault Report: registered inventory sits within its normal range \u2014 36th percentile of 8-month record"
         },
         {
           "severity": "info",
           "label": "REGISTERED BUILDING",
-          "text": "15.11 Moz registered (+5.2% over 30d, range 14.36–15.11 Moz); crossed 15 Moz on 2026-09-01"
+          "text": "15.11 Moz registered (+5.2% over 30d, range 14.36\u201315.11 Moz); crossed 15 Moz on 2026-09-01"
         },
         {
           "severity": "info",
           "label": "STOCKS MIX",
-          "text": "Eligible 12.27 Moz · Total 27.38 Moz · Req/Total 55.2%"
+          "text": "Eligible 12.27 Moz \u00b7 Total 27.38 Moz \u00b7 Req/Total 55.2%"
         },
         {
           "severity": "warning",
           "label": "30D STOPS",
-          "text": "7,644 contracts stopped (764.4 Koz, ~$3.4B) ≈ 5.1% of registered; Sep 4 house stop 62 contracts (6.2 Koz)"
+          "text": "7,644 contracts stopped (764.4 Koz, ~$3.4B) \u2248 5.1% of registered; Sep 4 house stop 62 contracts (6.2 Koz)"
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 18/100 — WATCH / WITHIN RANGE / BUILDING; not SQUEEZE_SETUP"
+          "text": "Risk Score 18/100 \u2014 WATCH / WITHIN RANGE / BUILDING; not SQUEEZE_SETUP"
         }
       ],
       "registeredHistory": [
@@ -304,7 +304,7 @@
       "reqTotalPct": 58.2,
       "registeredDelta30dPct": -0.4,
       "registeredRange30d": {
-        "low": 470.3,
+        "low": 469.1,
         "high": 479
       },
       "registeredDelta7dPct": 0,
@@ -323,7 +323,7 @@
         "stops30dPctRegistered": 40.8,
         "sep4Contracts": 40,
         "sep4Kst": 0.5,
-        "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
+        "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn \u22121.1K; eligible +480, registered 0)",
         "deliveryMonth": "2026-09"
       },
       "chips": {
@@ -336,15 +336,15 @@
           "variant": "warning"
         },
         "coverage": {
-          "text": "7:1 PAPER",
+          "text": "8:1 PAPER",
           "variant": "ok"
         },
         "cover": {
-          "text": "469D COVER",
+          "text": "498D COVER",
           "variant": "ok"
         },
         "delivery": {
-          "text": "BUILDING",
+          "text": "DRAINING",
           "variant": "warning"
         }
       },
@@ -352,27 +352,27 @@
         {
           "severity": "info",
           "label": "8-MONTH HIGH",
-          "text": "Vault Report: registered inventory at 8-month high (100th percentile of 8-mo record) — amply stocked and still building"
+          "text": "Vault Report: registered inventory at 8-month high (100th percentile of 8-mo record) \u2014 amply stocked and still building"
         },
         {
           "severity": "info",
-          "label": "REGISTERED BUILDING",
-          "text": "477.7K st registered (+3.7% over 30d, range 447.3–477.7K st); crossed 450K st on 2026-08-25"
+          "label": "REGISTERED DRAINING",
+          "text": "469.1K st registered (-0.4% over 30d, range 470.3\u2013479K st)"
         },
         {
           "severity": "info",
           "label": "STOCKS MIX",
-          "text": "Eligible 289.6K st · Total 767.3K st · Req/Total 62.3%"
+          "text": "Eligible 289.6K st \u00b7 Total 767.3K st \u00b7 Req/Total 62.3%"
         },
         {
           "severity": "warning",
           "label": "30D STOPS",
-          "text": "15,044 contracts stopped (188.1K st, ~$2.6B) ≈ 39% of registered; Sep 4 house stop 40 contracts (500 st)"
+          "text": "15,044 contracts stopped (188.1K st, ~$2.6B) \u2248 39% of registered; Sep 4 house stop 40 contracts (500 st)"
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 16/100 — WATCH / 8-MO HIGH / BUILDING; 7:1 paper shown but pile is ample (469d cover)"
+          "text": "Risk Score 16/100 \u2014 WATCH; 8:1 paper shown; 498d cover; inventory draining"
         }
       ],
       "registeredHistory": [
@@ -397,6 +397,10 @@
         {
           "month": "09/04",
           "value": 14
+        },
+        {
+          "month": "11/13",
+          "value": 12.5
         }
       ],
       "registeredAvg": 460,
@@ -477,22 +481,22 @@
         {
           "severity": "warning",
           "label": "THIN PILE",
-          "text": "30d −0.9%, 7d +0.0%, range 190.8–192.5 Koz — level is thin though curve is contango"
+          "text": "30d \u22120.9%, 7d +0.0%, range 190.8\u2013192.5 Koz \u2014 level is thin though curve is contango"
         },
         {
           "severity": "info",
           "label": "90-REPORT BUILD",
-          "text": "Vault desk: thin pile has lately been gaining on 90-report pace — build-side extreme on a small base"
+          "text": "Vault desk: thin pile has lately been gaining on 90-report pace \u2014 build-side extreme on a small base"
         },
         {
           "severity": "info",
           "label": "STOCKS MIX",
-          "text": "Eligible 202.6 Koz · Total 393.4 Koz · Req/Total 48.5%"
+          "text": "Eligible 202.6 Koz \u00b7 Total 393.4 Koz \u00b7 Req/Total 48.5%"
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 32/100 — WATCH / 8-MO LOW / THIN / contango 1.23%; not SQUEEZE_SETUP"
+          "text": "Risk Score 32/100 \u2014 WATCH / 8-MO LOW / THIN / contango 1.23%; not SQUEEZE_SETUP"
         }
       ],
       "registeredHistory": [
@@ -593,22 +597,22 @@
         {
           "severity": "info",
           "label": "ABOVE 5-YR AVG",
-          "text": "3,862 Bcf working gas — +2% vs 5-yr avg (3,787 Bcf)"
+          "text": "3,862 Bcf working gas \u2014 +2% vs 5-yr avg (3,787 Bcf)"
         },
         {
           "severity": "warning",
           "label": "INJECTION WEEK",
-          "text": "Net +61 Bcf — East +12, Midwest +18, South Central +27, Pacific +2, Mountain +2"
+          "text": "Net +61 Bcf \u2014 East +12, Midwest +18, South Central +27, Pacific +2, Mountain +2"
         },
         {
           "severity": "info",
           "label": "PAPER COVERAGE",
-          "text": "NYMEX NG OI 1,762,883 contracts (CFTC 2026-08-25) → ~17,629 Bcf paper vs 3,214 Bcf storage (~18.2%, 5.5:1)"
+          "text": "NYMEX NG OI 1,762,883 contracts (CFTC 2026-08-25) \u2192 ~17,629 Bcf paper vs 3,214 Bcf storage (~18.2%, 5.5:1)"
         },
         {
           "severity": "info",
           "label": "NO SUPPLY STRESS",
-          "text": "Risk Score 18/100 — not a squeeze analogue; stocks above 5-yr avg and within normal band"
+          "text": "Risk Score 18/100 \u2014 not a squeeze analogue; stocks above 5-yr avg and within normal band"
         }
       ],
       "storageHistory": [
@@ -724,7 +728,7 @@
         {
           "severity": "warning",
           "label": "BELOW 5-YR AVG",
-          "text": "Cushing 22.508 Mbbl — −19.2% vs same-week 5-yr avg (27.8 Mbbl); 21st %ile of 22-yr record, 7th %ile since 2015"
+          "text": "Cushing 22.508 Mbbl \u2014 \u221219.2% vs same-week 5-yr avg (27.8 Mbbl); 21st %ile of 22-yr record, 7th %ile since 2015"
         },
         {
           "severity": "info",
@@ -734,27 +738,27 @@
         {
           "severity": "info",
           "label": "~30% CAPACITY",
-          "text": "Cushing ~30% of ~76 Mbbl working capacity — lean hub, not empty tanks"
+          "text": "Cushing ~30% of ~76 Mbbl working capacity \u2014 lean hub, not empty tanks"
         },
         {
           "severity": "info",
           "label": "PAPER COVERAGE",
-          "text": "NYMEX CL WTI-Physical OI 1,921,085 contracts (CFTC 067651, 2026-09-01) → ~1,921 Mbbl paper vs 22.5 Mbbl Cushing (~1.2%, 85:1)"
+          "text": "NYMEX CL WTI-Physical OI 1,921,085 contracts (CFTC 067651, 2026-09-01) \u2192 ~1,921 Mbbl paper vs 22.5 Mbbl Cushing (~1.2%, 85:1)"
         },
         {
           "severity": "info",
           "label": "NATIONAL COVER",
-          "text": "US commercial 424.5 Mbbl / 17.5 MMbbl/d refinery inputs ≈ 24.3 days — national EIA method, not Cushing-only"
+          "text": "US commercial 424.5 Mbbl / 17.5 MMbbl/d refinery inputs \u2248 24.3 days \u2014 national EIA method, not Cushing-only"
         },
         {
           "severity": "info",
           "label": "SPR FOOTNOTE",
-          "text": "SPR 286.6 Mbbl (−3.1 WoW, 1st %ile of 44-yr record) — not deliverable against CL at Cushing"
+          "text": "SPR 286.6 Mbbl (\u22123.1 WoW, 1st %ile of 44-yr record) \u2014 not deliverable against CL at Cushing"
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 32/100 — WATCH / BELOW 5-YR / ABOVE TANK BOTTOMS; lean vs history but rebuilding above floor"
+          "text": "Risk Score 32/100 \u2014 WATCH / BELOW 5-YR / ABOVE TANK BOTTOMS; lean vs history but rebuilding above floor"
         }
       ],
       "storageHistory": [
@@ -813,7 +817,7 @@
       "spreadUsd": -2.52,
       "spreadRangeLow": -12.24,
       "spreadRangeHigh": 2.45,
-      "spreadRangeLabel": "Jun 2–Sep 1 observed range on Vault Report",
+      "spreadRangeLabel": "Jun 2\u2013Sep 1 observed range on Vault Report",
       "openInterestContracts": 253258,
       "openInterestWow": -16886,
       "impliedPaperMbbl": 253.3,
@@ -842,34 +846,34 @@
       },
       "delivery": {
         "mechanism": "EFP delivery or cash settle vs ICE Brent Index",
-        "indexBasis": "BFOET cargoes — full cargo size 700,000 bbl (Index methodology)",
-        "tightnessProxy": "WTI–Brent spread — no public warehouse series"
+        "indexBasis": "BFOET cargoes \u2014 full cargo size 700,000 bbl (Index methodology)",
+        "tightnessProxy": "WTI\u2013Brent spread \u2014 no public warehouse series"
       },
       "alerts": [
         {
           "severity": "info",
-          "label": "WTI–BRENT SPREAD",
-          "text": "Spread −$4.54/bbl (WTI $91.48 / Brent $96.02, 2026-09-01) — typical WTI discount; Jun 2–Sep 1 range −$12.24 to +$2.45"
+          "label": "WTI\u2013BRENT SPREAD",
+          "text": "Spread \u2212$4.54/bbl (WTI $91.48 / Brent $96.02, 2026-09-01) \u2014 typical WTI discount; Jun 2\u2013Sep 1 range \u2212$12.24 to +$2.45"
         },
         {
           "severity": "info",
           "label": "NO WAREHOUSE SERIES",
-          "text": "ICE Brent is EFP + cash-settle vs the ICE Brent Index — no Cushing-style tank series. Do not clone tank stocks."
+          "text": "ICE Brent is EFP + cash-settle vs the ICE Brent Index \u2014 no Cushing-style tank series. Do not clone tank stocks."
         },
         {
           "severity": "info",
           "label": "PAPER (NYMEX LD)",
-          "text": "NYMEX Brent Last Day OI 253,258 contracts (CFTC 06765T, 2026-09-01, −16,886 WoW) — not ICE Brent futures"
+          "text": "NYMEX Brent Last Day OI 253,258 contracts (CFTC 06765T, 2026-09-01, \u221216,886 WoW) \u2014 not ICE Brent futures"
         },
         {
           "severity": "info",
           "label": "PHYSICAL MECHANISM",
-          "text": "EFP or cash settle vs ICE Brent Index (700 kb cargo). No days-cover KPI — no tank farm."
+          "text": "EFP or cash settle vs ICE Brent Index (700 kb cargo). No days-cover KPI \u2014 no tank farm."
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 24/100 — WATCH / CASH-SETTLED / NO WAREHOUSE; −$4.54 is mid-range, not a squeeze flag"
+          "text": "Risk Score 24/100 \u2014 WATCH / CASH-SETTLED / NO WAREHOUSE; \u2212$4.54 is mid-range, not a squeeze flag"
         }
       ],
       "spreadHistory": [
@@ -909,20 +913,20 @@
       "coverageRatio": 0.5,
       "paperPhysicalRatio": 201,
       "daysCover": "N/A",
-      "daysCoverBasis": "No cited divisor — do not divide certified bags by world grind",
+      "daysCoverBasis": "No cited divisor \u2014 do not divide certified bags by world grind",
       "contractSizeLb": 37500,
       "delivery": {
         "brazilExportsT": 206618,
         "brazilExportsYoyPct": 44.6,
-        "exportNote": "Brazil Aug exports — contrast, not a tightness KPI",
+        "exportNote": "Brazil Aug exports \u2014 contrast, not a tightness KPI",
         "rabobankSurplusBags": 8900000,
-        "rabobankNote": "Rabobank 2026/27 surplus ~8.9M bags — empty ICE sheds ≠ empty world crop"
+        "rabobankNote": "Rabobank 2026/27 surplus ~8.9M bags \u2014 empty ICE sheds \u2260 empty world crop"
       },
       "footnotes": {
-        "pendingGrading": "I&M Smith ~3,205 bags pending around 2 Sep — do not subtract from 218,838",
-        "geography": "I&M Smith ~74% Europe / 26% US around 2 Sep on 223,762 bags — do not apply to 218,838",
-        "oiVintage": "CFTC OI 2026-09-01 vs certs 2026-09-08 — footnote, no interpolated path",
-        "robusta": "Robusta ICE certs ~5,004 lots (~9-month high) — different contract; footnote only"
+        "pendingGrading": "I&M Smith ~3,205 bags pending around 2 Sep \u2014 do not subtract from 218,838",
+        "geography": "I&M Smith ~74% Europe / 26% US around 2 Sep on 223,762 bags \u2014 do not apply to 218,838",
+        "oiVintage": "CFTC OI 2026-09-01 vs certs 2026-09-08 \u2014 footnote, no interpolated path",
+        "robusta": "Robusta ICE certs ~5,004 lots (~9-month high) \u2014 different contract; footnote only"
       },
       "chips": {
         "status": {
@@ -946,27 +950,27 @@
         {
           "severity": "warning",
           "label": "CERTS DRAIN",
-          "text": "ICE certified arabica 224,011 (28 Aug) → 223,911 (1 Sep) → 218,838 (8 Sep) — lowest in 27 years"
+          "text": "ICE certified arabica 224,011 (28 Aug) \u2192 223,911 (1 Sep) \u2192 218,838 (8 Sep) \u2014 lowest in 27 years"
         },
         {
           "severity": "info",
           "label": "BACKWARDATION",
-          "text": "Sep 318.45 ¢/lb vs Dec 291.30 ¢/lb — front 27.15 ¢ / 8.53% over next (Vietnam.vn 9 Sep)"
+          "text": "Sep 318.45 \u00a2/lb vs Dec 291.30 \u00a2/lb \u2014 front 27.15 \u00a2 / 8.53% over next (Vietnam.vn 9 Sep)"
         },
         {
           "severity": "info",
           "label": "WORLD CROP CONTRAST",
-          "text": "Rabobank 2026/27 surplus ~8.9M bags — very abundant crop tape coexists with thin ICE sheds"
+          "text": "Rabobank 2026/27 surplus ~8.9M bags \u2014 very abundant crop tape coexists with thin ICE sheds"
         },
         {
           "severity": "info",
           "label": "BRAZIL EXPORTS",
-          "text": "Brazil Aug exports 206,618 t (+44.6% y/y) — contrast footnote, not deliverable tightness"
+          "text": "Brazil Aug exports 206,618 t (+44.6% y/y) \u2014 contrast footnote, not deliverable tightness"
         },
         {
           "severity": "info",
           "label": "NO SQUEEZE SETUP",
-          "text": "Risk Score 38/100 — WATCH / CERTS THIN / BACKWARDATION; surplus crop tape below squeeze call"
+          "text": "Risk Score 38/100 \u2014 WATCH / CERTS THIN / BACKWARDATION; surplus crop tape below squeeze call"
         }
       ],
       "certHistory": [
