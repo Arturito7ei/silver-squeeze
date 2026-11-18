@@ -1,26 +1,26 @@
 {
-  "pulledAt": "2026-11-17T23:11:37.275Z",
-  "asOf": "2026-11-13",
+  "pulledAt": "2026-11-18T22:43:29.400Z",
+  "asOf": "2026-11-16",
   "sources": [
     {
       "id": "vault-silver",
       "url": "https://thevaultreport.com/metals/silver",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-16"
     },
     {
       "id": "vault-gold",
       "url": "https://thevaultreport.com/metals/gold",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-16"
     },
     {
       "id": "vault-copper",
       "url": "https://thevaultreport.com/metals/copper",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-16"
     },
     {
       "id": "vault-platinum",
       "url": "https://thevaultreport.com/metals/platinum",
-      "asOf": "2026-11-13"
+      "asOf": "2026-11-16"
     },
     {
       "id": "eia-wti",
@@ -40,23 +40,23 @@
     {
       "id": "fred-wti",
       "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
-      "asOf": "2026-11-11"
+      "asOf": "2026-11-17"
     },
     {
       "id": "fred-brent",
       "url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
-      "asOf": "2026-11-11"
+      "asOf": "2026-11-17"
     }
   ],
   "tabs": {
     "silver": {
-      "lastUpdate": "2026-11-13 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-11-16 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/silver",
-      "asOfExactOz": 101720000,
+      "asOfExactOz": 101780000,
       "riskScore": 22,
-      "registeredMoz": 101.72,
+      "registeredMoz": 101.78,
       "registeredDelta": -0.32,
-      "reqTotalPct": 30.6,
+      "reqTotalPct": 30.7,
       "coverageRatio": 16.7,
       "openInterestMoz": 497,
       "percentileLabel": "8-mo percentile",
@@ -64,11 +64,11 @@
       "daysCover": 83,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal)",
       "delivery": {
-        "mtdMoz": 11.68,
+        "mtdMoz": 12.75,
         "dailyNotices": 13,
         "deliveryMonth": "2026-09",
-        "intensityPct": 11.5,
-        "stops30dContracts": 2336
+        "intensityPct": 12.5,
+        "stops30dContracts": 2549
       },
       "chips": {
         "status": {
@@ -134,7 +134,7 @@
         },
         {
           "month": "Nov",
-          "value": 101.72
+          "value": 101.78
         }
       ],
       "coverageHistory": [
@@ -167,7 +167,7 @@
         0,
         30
       ],
-      "registeredDelta30dPct": -1.4,
+      "registeredDelta30dPct": -1.3,
       "registeredRange30d": {
         "low": 95.49,
         "high": 102.29
@@ -175,15 +175,15 @@
       "paperPhysicalRatio": 6
     },
     "gold": {
-      "lastUpdate": "2026-11-13 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-11-16 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/gold",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 18,
-      "registeredMoz": 14.22,
+      "registeredMoz": 14.19,
       "eligibleMoz": 8.81,
-      "totalMoz": 23.03,
-      "reqTotalPct": 61.8,
-      "registeredDelta30dPct": -4,
+      "totalMoz": 23,
+      "reqTotalPct": 61.7,
+      "registeredDelta30dPct": -4.2,
       "registeredRange30d": {
         "low": 15.09,
         "high": 15.19
@@ -198,10 +198,10 @@
       "daysCover": 196,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 6072,
-        "stops30dKoz": 607.2,
+        "stops30dContracts": 6323,
+        "stops30dKoz": 632.3,
         "stops30dValueB": 3.4,
-        "stops30dPctRegistered": 4.3,
+        "stops30dPctRegistered": 4.5,
         "sep4Contracts": 62,
         "sep4Koz": 6.2,
         "sep4VaultFlow": "+64 oz FILLING (eligible +64, registered 0)",
@@ -271,7 +271,7 @@
         },
         {
           "month": "Nov",
-          "value": 14.22
+          "value": 14.19
         }
       ],
       "coverageHistory": [
@@ -294,13 +294,13 @@
       ]
     },
     "copper": {
-      "lastUpdate": "2026-11-13 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-11-16 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/copper",
       "sourceComex": "https://thevaultreport.com/comex",
       "riskScore": 16,
       "registeredKst": 469.1,
       "eligibleKst": 336.3,
-      "totalKst": 805.5,
+      "totalKst": 805.4,
       "reqTotalPct": 58.2,
       "registeredDelta30dPct": -0.4,
       "registeredRange30d": {
@@ -314,13 +314,13 @@
       "impliedPaperKst": 3344,
       "openInterestContracts": 282640,
       "openInterestKst": 3533,
-      "daysCover": 498,
+      "daysCover": 499,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 15326,
-        "stops30dKst": 191.6,
+        "stops30dContracts": 15706,
+        "stops30dKst": 196.3,
         "stops30dValueB": 2.6,
-        "stops30dPctRegistered": 40.8,
+        "stops30dPctRegistered": 41.8,
         "sep4Contracts": 40,
         "sep4Kst": 0.5,
         "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
@@ -417,7 +417,7 @@
       ]
     },
     "platinum": {
-      "lastUpdate": "2026-11-13 (COMEX warehouse report via The Vault Report)",
+      "lastUpdate": "2026-11-16 (COMEX warehouse report via The Vault Report)",
       "sourceUrl": "https://thevaultreport.com/metals/platinum",
       "sourceComex": "https://thevaultreport.com/charts/comex/platinum",
       "sourceCot": "https://futuresbench.com/cot/platinum/",
@@ -807,14 +807,14 @@
       ]
     },
     "brent": {
-      "lastUpdate": "2026-11-11 (FRED DCOILWTICO / DCOILBRENTEU)",
+      "lastUpdate": "2026-11-17 (FRED DCOILWTICO / DCOILBRENTEU)",
       "sourceSpread": "https://thevaultreport.com/oil/wti-brent-spread",
       "sourceOi": "https://www.tradingster.com/cot/legacy-futures/06765T",
       "sourceIce": "https://www.ice.com/products/219/Brent-Crude-Futures",
       "riskScore": 24,
-      "wtiUsd": 89.62,
-      "brentUsd": 92.14,
-      "spreadUsd": -2.52,
+      "wtiUsd": 89.53,
+      "brentUsd": 92.94,
+      "spreadUsd": -3.41,
       "spreadRangeLow": -12.24,
       "spreadRangeHigh": 2.45,
       "spreadRangeLabel": "Jun 2–Sep 1 observed range on Vault Report",
@@ -1009,22 +1009,6 @@
   },
   "series": {
     "spreadDaily": [
-      {
-        "month": "05/21",
-        "value": -5.64
-      },
-      {
-        "month": "05/22",
-        "value": -6.55
-      },
-      {
-        "month": "05/26",
-        "value": -5.12
-      },
-      {
-        "month": "05/27",
-        "value": -4.76
-      },
       {
         "month": "05/28",
         "value": -2.82
@@ -1488,6 +1472,22 @@
       {
         "month": "11/11",
         "value": -2.52
+      },
+      {
+        "month": "11/12",
+        "value": -3.12
+      },
+      {
+        "month": "11/13",
+        "value": -3.21
+      },
+      {
+        "month": "11/16",
+        "value": -3.66
+      },
+      {
+        "month": "11/17",
+        "value": -3.41
       }
     ],
     "spreadMonthly": [
@@ -1585,7 +1585,7 @@
       },
       {
         "month": "11/26",
-        "value": -3.24
+        "value": -3.27
       }
     ],
     "copperGoldMonthly": [
