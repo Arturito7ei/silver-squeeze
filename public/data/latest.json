@@ -1,5 +1,5 @@
 {
-  "pulledAt": "2026-11-25T23:49:30.121Z",
+  "pulledAt": "2026-11-27T00:07:00.978Z",
   "asOf": "2026-11-24",
   "sources": [
     {
@@ -64,11 +64,11 @@
       "daysCover": 79,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal)",
       "delivery": {
-        "mtdMoz": 13.62,
+        "mtdMoz": 12.45,
         "dailyNotices": 13,
         "deliveryMonth": "2026-09",
-        "intensityPct": 13.9,
-        "stops30dContracts": 2723
+        "intensityPct": 12.7,
+        "stops30dContracts": 2490
       },
       "chips": {
         "status": {
@@ -198,10 +198,10 @@
       "daysCover": 198,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 6442,
-        "stops30dKoz": 644.2,
+        "stops30dContracts": 6235,
+        "stops30dKoz": 623.5,
         "stops30dValueB": 3.4,
-        "stops30dPctRegistered": 4.5,
+        "stops30dPctRegistered": 4.4,
         "sep4Contracts": 62,
         "sep4Koz": 6.2,
         "sep4VaultFlow": "+64 oz FILLING (eligible +64, registered 0)",
@@ -317,10 +317,10 @@
       "daysCover": 492,
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "delivery": {
-        "stops30dContracts": 15617,
-        "stops30dKst": 195.2,
+        "stops30dContracts": 15353,
+        "stops30dKst": 191.9,
         "stops30dValueB": 2.6,
-        "stops30dPctRegistered": 42.8,
+        "stops30dPctRegistered": 42,
         "sep4Contracts": 40,
         "sep4Kst": 0.5,
         "sep4VaultFlow": "+480 st FILLING (received +1.6K, withdrawn −1.1K; eligible +480, registered 0)",
@@ -442,8 +442,8 @@
       "daysCoverBasis": "Withdrawal cover (registered / avg daily withdrawal; arrivals not counted)",
       "goldPlatinumSpotFootnote": "2.34 oz Au / oz Pt (Vault gold $4,450 / platinum $1,905, COMEX front-month, 2026-09-09)",
       "delivery": {
-        "stops30dContracts": 98,
-        "stops30dKoz": 4.9,
+        "stops30dContracts": 96,
+        "stops30dKoz": 4.8,
         "stops30dValueM": 8.5,
         "sep4Contracts": 7,
         "sep4Oz": 350,
